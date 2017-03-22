@@ -2,6 +2,7 @@ html, body {
 	margin: 0;
 	height: 100%;
 	font: 14px/18px sans-serif;
+	overflow: hidden;
 }
 
 body {
@@ -10,17 +11,17 @@ body {
 }
 
 .teaser {
-	font-size: 1.5em;
+	font-size: 1.25em;
+	font-weight: 100;
 }
 
 .teaser h1 {
-	background: url(../img/bnaic-logo.svg);
-	background-repeat: no-repeat;
+	background: url(../img/bnaic-logo.svg) center no-repeat;
 	overflow: hidden;
 	background-size: contain;
 	width: 100%;
-	max-width: 400px;
-	height: 260px;
+	max-width: 600px;
+	height: 400px;
 	margin: 0 auto;
 	color: rgba(0, 0, 0, 0.0);
 }
@@ -32,7 +33,7 @@ body {
 .teaser header {
 	display: block;
 	text-align: center;
-	margin: 100px auto;
+	margin: 100px auto 0 auto;
 	padding: 20px;
-	background: rgba(15, 127, 18, 0.4);
+	background: rgba(15, 127, 18, 0.6);
 }
