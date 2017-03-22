@@ -1,0 +1,38 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	font: 14px/18px sans-serif;
+}
+
+body {
+	background: #fff url(../img/bnaic-1.jpg) center no-repeat;
+	background-size: cover;
+}
+
+.teaser {
+	font-size: 1.5em;
+}
+
+.teaser h1 {
+	background: url(../img/bnaic-logo.svg);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	background-size: contain;
+	width: 100%;
+	max-width: 400px;
+	height: 260px;
+	margin: 0 auto;
+	color: rgba(0, 0, 0, 0.0);
+}
+
+.teaser header, .teaser a {
+	color: #fff;
+}
+
+.teaser header {
+	display: block;
+	text-align: center;
+	margin: 100px auto;
+	padding: 20px;
+	background: rgba(15, 127, 18, 0.4);
+}
