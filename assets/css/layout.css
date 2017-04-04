@@ -33,7 +33,13 @@ body {
 .teaser header {
 	display: block;
 	text-align: center;
-	margin: 100px auto 0 auto;
+	margin: 0 auto 0 auto;
 	padding: 20px;
 	background: rgba(15, 127, 18, 0.6);
+}
+
+@media(min-height: 700px) {
+	.teaser header {
+		margin-top: 100px;
+	}
 }
