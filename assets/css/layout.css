@@ -2,20 +2,87 @@ html, body {
 	margin: 0;
 	height: 100%;
 	font: 14px/18px sans-serif;
-	overflow: hidden;
 }
 
 body {
 	background: #fff url(../img/bnaic-1.jpg) center no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
+	margin-top: 2em;
 }
 
-.teaser {
+.website-navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 1.25em;
+	line-height: 2em;
+	background: rgba(255, 255, 255, 0.8);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	z-index: 10;
+}
+
+.website-navigation a,
+.website-navigation a:link,
+.website-navigation a:visited {
+	display: inline-block;
+	color: black;
+	padding: 0 2em;
+	text-decoration: none;
+}
+
+.website-navigation a:hover {
+	background: rgba(15, 127, 18, 0.69);
+	color: white;
+}
+
+header h1 {
+	background: url(../img/bnaic-logo.svg) center no-repeat;
+	overflow: hidden;
+	background-size: contain;
+	height: 200px;
+	color: rgba(0, 0, 0, 0.0);
+	float: left;
+}
+
+header::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+header {
+	display: block;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	padding: 20px;
+	background: rgba(15, 127, 18, 0.6);
+}
+
+header, header a {
+	color: #fff;
+}
+
+section {
+	max-width: 900px;
+	padding: 20px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.95);
+}
+
+body.teaser {
+	overflow: hidden;
+}
+
+.teaser header {
 	font-size: 1.25em;
 	font-weight: 100;
 }
 
-.teaser h1 {
+.teaser header h1 {
 	background: url(../img/bnaic-logo.svg) center no-repeat;
 	overflow: hidden;
 	background-size: contain;
@@ -23,19 +90,7 @@ body {
 	max-width: 600px;
 	height: 400px;
 	margin: 0 auto;
-	color: rgba(0, 0, 0, 0.0);
-}
-
-.teaser header, .teaser a {
-	color: #fff;
-}
-
-.teaser header {
-	display: block;
-	text-align: center;
-	margin: 0 auto 0 auto;
-	padding: 20px;
-	background: rgba(15, 127, 18, 0.6);
+	float: none;
 }
 
 @media(min-height: 700px) {
