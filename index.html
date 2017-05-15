@@ -17,16 +17,16 @@
 			</div>
 		</header>
 
-		<div class="website-content">
-			<nav class="website-navigation">
-				<div class="container">
-					<a href="index.html">Home</a>
-					<a href="committees.html">Committees</a>
-					<a href="important-dates.html">Important dates</a>
-					<a href="location.html">Location</a>
-				</div>
-			</nav>
+		<nav class="website-navigation">
+			<div class="container">
+				<a href="index.html">Home</a>
+				<a href="committees.html">Committees</a>
+				<a href="important-dates.html">Important dates</a>
+				<a href="location.html">Location</a>
+			</div>
+		</nav>
 
+		<div class="website-content">
 			<div class="container">
 				<h1>Home</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla enim eu ipsum tempus efficitur. Phasellus eget purus luctus, sodales ex id, sollicitudin turpis. Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
@@ -53,12 +53,31 @@
 				</ul>
 				<p>En nog meer tekst</p>
 			</div>
-		</website-content>
+		</div>
 
 		<footer>
 			<div class="container">
 				<p>Contact: todo@example.com</p>
 			</div>
 		</footer>
+		
+		<script>
+			var element = document.querySelector('.website-navigation');
+			var position = null;
+
+			function updatePosition() {
+				position = element.offsetTop;
+			}
+
+			updatePosition();
+
+			window.addEventListener('zoom', updatePosition);
+
+			window.addEventListener('resize', updatePosition);
+
+			window.addEventListener('scroll', function() {
+				element.classList.toggle('fixed', window.scrollY > position);
+			});
+		</script>
 	</body>
 </html>
