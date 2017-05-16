@@ -100,11 +100,7 @@ html, body {
 	margin: 0 1em;
 	text-decoration: none;
 	color: white;
-	border-bottom: 1px solid white;
-}
-
-.website-navigation a:hover {
-	border-bottom: 3px solid white;
+	border-bottom: 2px solid white;
 }
 
 .website-navigation.fixed {
@@ -112,7 +108,7 @@ html, body {
 	top: 0;
 	bottom: auto;
 	background: white;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .website-navigation.fixed a,
@@ -121,13 +117,17 @@ html, body {
 	padding: 0 2em;
 	margin: 0;
 	color: black;
-	border-bottom: 0;
+	border: 0;
 }
 
-.website-navigation.fixed a:hover {
-	background: rgba(15, 127, 18, 1.0);
-	border-bottom: 0;
+.website-navigation.fixed a:hover,
+.website-navigation.fixed a.active:hover {
 	color: white;
+	background: rgba(15, 127, 18, 1.0);
+}
+
+.website-navigation.fixed a.active {
+	color: rgba(15, 127, 18, 1.0);
 }
 
 .website-content {
