@@ -95,12 +95,16 @@ html, body {
 .website-navigation a:visited {
 	flex: 1 1 auto;
 	display: inline-block;
-	color: black;
 	padding: 0 1em;
 	margin: 0 1em;
 	text-decoration: none;
 	color: white;
 	border-bottom: 2px solid white;
+}
+
+.website-navigation a:hover {
+	background: white;
+	color: black;
 }
 
 .website-navigation.fixed {
