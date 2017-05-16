@@ -7,12 +7,77 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="assets/css/layout.css">
 	</head>
-	<body class="teaser">
-		<header>
-			<h1>BNAIC 2017</h1>
-			<p>The 29th Benelux Conference on Artificial Intelligence</p>
-			<p>November 8&ndash;9, 2017 in Groningen, The Netherlands</p>
-			<p>The conference will be held in <a href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p>
+	<body>
+		<header class="website-header">
+			<div class="text">
+				<h1>BNAIC 2017</h1>
+				<p>The 29th Benelux Conference on Artificial Intelligence</p>
+				<p>November 8&ndash;9, 2017 in Groningen, The Netherlands</p>
+				<p>The conference will be held in <a href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p>
+			</div>
 		</header>
+
+		<nav class="website-navigation">
+			<div class="container">
+				<a href="index.html">Home</a>
+				<a href="committees.html">Committees</a>
+				<a href="important-dates.html">Important dates</a>
+				<a href="location.html">Location</a>
+			</div>
+		</nav>
+
+		<div class="website-content">
+			<div class="container">
+				<h1>Home</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla enim eu ipsum tempus efficitur. Phasellus eget purus luctus, sodales ex id, sollicitudin turpis. Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
+				<p>Vestibulum ut volutpat sapien. Phasellus porta efficitur arcu, ut tincidunt augue facilisis vel. Sed mauris erat, eleifend sed lacus ut, dictum egestas est. Mauris nunc urna, bibendum euismod dui at, laoreet iaculis orci. Mauris ultricies interdum.</p>
+				
+				<h2>Header 2</h2>
+				<p>Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
+
+				<p>Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
+
+				<p>Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
+
+				<h3>Header 3</h3>
+				<p>Vestibulum non turpis commodo, sodales metus vel, pharetra augue. Etiam nec tincidunt lectus. Ut rutrum id erat id dignissim. Phasellus euismod pulvinar diam, volutpat euismod velit efficitur sed. Vestibulum non metus finibus, tincidunt justo ut, iaculis elit. Aliquam erat volutpat.</p>
+
+				<p>Tekst</p>
+				
+				<ul>
+					<li>Lorem</li>
+					<li>ipsum</li>
+					<li>dolor</li>
+					<li>sit</li>
+					<li>amet</li>
+				</ul>
+				<p>En nog meer tekst</p>
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<p>Contact: todo@example.com</p>
+			</div>
+		</footer>
+		
+		<script>
+			var element = document.querySelector('.website-navigation');
+			var position = null;
+
+			function updatePosition() {
+				position = element.offsetTop;
+			}
+
+			updatePosition();
+
+			window.addEventListener('zoom', updatePosition);
+
+			window.addEventListener('resize', updatePosition);
+
+			window.addEventListener('scroll', function() {
+				element.classList.toggle('fixed', window.scrollY > position);
+			});
+		</script>
 	</body>
 </html>
