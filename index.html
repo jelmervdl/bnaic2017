@@ -78,6 +78,25 @@
 			window.addEventListener('scroll', function() {
 				element.classList.toggle('fixed', window.scrollY > position);
 			});
+
+			document.addEventListener('click', function(e) {
+				if (e.target.nodeName == 'A') {
+					var current = document.location.href.split('#', 2);
+					var parts = e.target.href.split('#', 2);
+					
+					if (current[0] != parts[0])
+						return;
+
+					var target = document.getElementById(parts[1]);
+					if (!target)
+						return;
+					
+					target.scrollIntoView({ behavior: 'smooth' });
+					
+					e.preventDefault();
+				}
+			})
 		</script>
+		<script src="assets/js/smoothscroll.js"></script>
 	</body>
 </html>
