@@ -258,3 +258,63 @@ body > footer {
 footer a {
 	color: inherit;
 }
+
+/* Registration form */
+.form-group {
+	display: block;
+}
+
+.form-group label {
+	box-sizing: border-box;
+	display: block;
+}
+
+.form-group.required label::after {
+	content: '*';
+	color: red;
+}
+
+.form-group input,
+.form-group select {
+	display: block;
+	font: inherit;
+}
+
+.form-group input {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.form-controls {
+	margin-top: 1em;
+}
+
+.form-controls button {
+	display: inline-block;
+	font: inherit;
+	padding: 0.5em 1em;
+	cursor: pointer;
+}
+
+@media (min-width: 700px) {
+	/* Labels fit next to the field here */
+	.form-group label {
+		display: inline-block;
+		width: 200px;
+		text-align: right;
+		padding-right: 1em;
+	}
+
+	.form-group input,
+	.form-group select {
+		display: inline-block;
+	}
+
+	.form-group input {
+		width: 500px;
+	}
+
+	.form-controls {
+		padding-left: 200px;
+	}
+}
