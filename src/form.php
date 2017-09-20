@@ -2,7 +2,7 @@
 
 class Form
 {
-	public $fields = [];
+	public $fields = array();
 
 	public function add(FormField $field)
 	{
