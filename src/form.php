@@ -36,15 +36,15 @@ class Form
 
 abstract class FormField
 {
-	protected $attributes = [];
+	protected $attributes = array();
 
-	public function __construct($name, $label, array $attributes = [])
+	public function __construct($name, $label, array $attributes = array())
 	{
 		$this->name = $name;
 
 		$this->label = $label;
 
-		$this->attributes = array_merge($attributes, ['name' => $name, 'id' => 'field-' . $name]);
+		$this->attributes = array_merge($attributes, array('name' => $name, 'id' => 'field-' . $name));
 	}
 
 	public function name()
@@ -65,11 +65,11 @@ abstract class FormField
 		return null;
 	}
 
-	abstract public function render(array &$errors = []);
+	abstract public function render(array &$errors = array());
 
 	protected function render_attributes(array $attributes)
 	{
-		$pairs = [];
+		$pairs = array();
 
 		foreach ($attributes as $prop => $value)
 			$pairs[] = ($value === true)
@@ -97,16 +97,16 @@ abstract class FormField
 
 class FormTextField extends FormField 
 {	
-	protected $default_attributes = [
+	protected $default_attributes = array(
 		'type' => 'text'
-	];
+	);
 
 	public function render(array &$errors = null)
 	{
 		$attributes = array_merge($this->default_attributes, $this->attributes);
 
 		if ($this->value() !== null)
-			$attributes = array_merge($attributes, ['value' => $this->value()]);
+			$attributes = array_merge($attributes, array('value' => $this->value()));
 
 		$field = sprintf('<input %s>', $this->render_attributes($attributes));
 
@@ -116,9 +116,9 @@ class FormTextField extends FormField
 
 class FormEmailField extends FormTextField
 {
-	protected $default_attributes = [
+	protected $default_attributes = array(
 		'type' => 'email'
-	];
+	);
 
 	public function validate()
 	{
@@ -131,14 +131,14 @@ class FormEmailField extends FormTextField
 
 class FormSelectField extends FormField
 {
-	public function __construct($name, $label, array $options, array $attributes = [])
+	public function __construct($name, $label, array $options, array $attributes = array())
 	{
 		parent::__construct($name, $label, $attributes);
 
 		$this->options = $options;
 	}
 
-	public function render(array &$errors = [])
+	public function render(array &$errors = array())
 	{
 		$html_options = [];
 
