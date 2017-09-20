@@ -6,17 +6,17 @@ ini_set('display_errors', true);
 require 'src/form.php';
 
 $registration_form = new Form();
-$registration_form->add(new FormTextField('first_name', 'First name', ['required' => true]));
-$registration_form->add(new FormTextField('last_name', 'Last name', ['required' => true]));
-$registration_form->add(new FormEmailField('email', 'Email address', ['required' => true]));
+$registration_form->add(new FormTextField('first_name', 'First name', array('required' => true)));
+$registration_form->add(new FormTextField('last_name', 'Last name', array('required' => true)));
+$registration_form->add(new FormEmailField('email', 'Email address', array('required' => true)));
 
-$registration_form->add(new FormSelectField('register_as', 'Registering as', [
+$registration_form->add(new FormSelectField('register_as', 'Registering as', array(
 							'student' => 'BSc or MSc student',
 							'phd' => 'PhD student',
 							'regular' => 'Regular'
-						], ['required' => true]));
+						), array('required' => true)));
 
-$errors = $registration_form->submitted() ? $registration_form->validate() : [];
+$errors = $registration_form->submitted() ? $registration_form->validate() : array();
 
 ?>
 <!DOCTYPE html>
