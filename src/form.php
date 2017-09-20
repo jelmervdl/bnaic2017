@@ -21,7 +21,7 @@ class Form
 
 	public function validate()
 	{
-		$errors = [];
+		$errors = array();
 
 		foreach ($this->fields as $name => $field) {
 			$error = $field->validate();
