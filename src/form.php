@@ -140,7 +140,7 @@ class FormSelectField extends FormField
 
 	public function render(array &$errors = array())
 	{
-		$html_options = [];
+		$html_options = array();
 
 		foreach ($this->options as $option_value => $option_label)
 			$html_options[] = sprintf('<option%s value="%s">%s</option>',
