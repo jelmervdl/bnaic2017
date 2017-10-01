@@ -32,7 +32,8 @@
 			<div class="container">
 				<section>
 					<h1>Venue</h1>
-					<p>The conference will be held in <a href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p>
+					<p>The conference will be held in <a class="location" data-lat-lng="53.2178446,6.554970199" data-place-id="ChIJFWF2MknNyUcRAdHEfNVM54Q" data-address="Melkweg 1, 9718 EP Groningen" href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p
+						data-lat-lng="53.2178446,6.554970199999999">
 					<p>This Neo-Gothic building with the tower of Foucault and its famous pendulum, the hall with the geometric patterns and the Escher ceiling, the stairwell with the stained-glass windows, the Gothic pointed arch windows and the richly decorated stairwells are an architectural attraction, a museum in their own right.</p>
 
 					<figure>
@@ -43,15 +44,9 @@
 				<section>
 					<h1>Map</h1>
 					<p>The exact address of Het Kasteel is Melkweg 1, 9718 EP Groningen, the Netherlands.</p>
-					<iframe
-						class="embedded-map"
-						width="100%"
-						height="450"
-						frameborder="0"
-						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAstLmf39wUegs84_GaXrP_qRusAdKdpP8
-						&q=place_id:ChIJFWF2MknNyUcRAdHEfNVM54Q"
-						allowfullscreen>
-					</iframe>
+					<div id="google-map" class="embedded-map"
+						data-zoom="15"
+						data-lat-lng="53.22106619009879, 6.565827781092235"></div>
 				</section>
 				<section>
 					<h2>Hotels</h2>
@@ -74,8 +69,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="hotel" data-address="Oude Boteringestraat 43-45 9712 GD Groningen">
-								<td class="name"><a href="https://www.nh-hotels.com/hotel/nh-groningen-hotel-de-ville" target="_blank">Hotel NH Groningen Hotel de Ville</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="https://www.nh-hotels.com/hotel/nh-groningen-hotel-de-ville"
+									class="location" target="_blank"
+									data-address="Oude Boteringestraat 43-45 9712 GD Groningen"
+									data-place-id="ChIJK-r3EVDNyUcRFImI8FfX1dA"
+									data-lat-lng="53.2201068,6.563981300000001">Hotel NH Groningen Hotel de Ville</a></td>
 								<td class="stars">&starf;&starf;&starf;&starf;</td>
 								<td class="distance">800 m <time>10 min</time></td>
 								<td class="distance">0.3 km</td>
@@ -83,8 +82,12 @@
 								<td class="price">€ 98.-</td>
 								<td class="breakfast"><abbr title="Included">Incl.</abbr></td>
 							</tr>
-							<tr class="hotel" data-address="Kleine Kromme Elleboog 7-b 9712 BS Groningen">
-								<td class="name"><a href="http://www.rug.nl/society-business/university-hotel/" target="_blank">University Hotel</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="http://www.rug.nl/society-business/university-hotel/"
+									class="location" target="_blank"
+									data-address="Kleine Kromme Elleboog 7-b 9712 BS Groningen"
+									data-place-id="ChIJZzbm1U_NyUcReMmySGGJNis"
+									data-lat-lng="53.2186062,6.5618414">University Hotel</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">600 m <time>7 min</time></td>
 								<td class="distance">0.4 km</td>
@@ -95,8 +98,12 @@
 							<tr class="notes">
 								<td colspan="7">Best option price and distance wise.</td>
 							</tr>
-							<tr class="hotel" data-address="Gedempte Zuiderdiep 8 9711 HG Groningen">
-								<td class="name"><a href="https://www.martinihotel.nl/" target="_blank">Martini Hotel</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="https://www.martinihotel.nl/"
+									class="location" target="_blank"
+									data-address="Gedempte Zuiderdiep 8 9711 HG Groningen"
+									data-place-id="ChIJGUdxkFbNyUcRbREDXjhEBVE"
+									data-lat-lng="53.2156706,6.570920699999999">Martini Hotel</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">1.4 km <time>17 min</time></td>
 								<td class="distance">0.4 km</td>
@@ -104,8 +111,12 @@
 								<td class="price">€ 97.-</td>
 								<td class="breakfast"><abbr title="Included">Incl.</abbr></td>
 							</tr>
-							<tr class="hotel" data-address="Oosterstraat 53, 9711 NR Groningen">
-								<td class="name"><a href="http://www.charmehotels.eu/en/groningen" target="_blank">Hotel Schimmelpenninck Huys</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="http://www.charmehotels.eu/en/groningen"
+									class="location" target="_blank"
+									data-address="Oosterstraat 53, 9711 NR Groningen"
+									data-place-id="ChIJyWw5wVbNyUcRRicZAzFBX7o"
+									data-lat-lng="53.21662319999999,6.569841199999999">Hotel Schimmelpenninck Huys</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">1.3 km <time>16 min</time></td>
 								<td class="distance">0.3 km</td>
@@ -116,8 +127,12 @@
 							<tr class="notes">
 								<td colspan="7">On a pretty busy road.</td>
 							</tr>
-							<tr class="hotel" data-address="Emmalaan 33, 9752 KS Haren">
-								<td class="name"><a href="http://www.postillionhotels.com/en-gb/hotels/postillion-hotel-haren-groningen" target="_blank">Postillion Hotel Haren Groningen</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="http://www.postillionhotels.com/en-gb/hotels/postillion-hotel-haren-groningen"
+									class="location" target="_blank"
+									data-address="Emmalaan 33, 9752 KS Haren"
+									data-place-id="ChIJLbYe4wotyEcRG-dFngfXGAU"
+									data-lat-lng="53.1676156,6.594553899999999">Postillion Hotel Haren Groningen</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">7.3 km <time>(see note)</time></td>
 								<td class="distance">6 km</td>
@@ -128,8 +143,12 @@
 							<tr class="notes">
 								<td colspan="7">Close to Haren Park &amp; Ride where a bus can take you to Groningen Central Station. From there you can either walk about 20 mins or take a bus, this will then take about 12 mins.</td>
 							</tr>
-							<tr class="hotel" data-address="Boterdiep 73-2 9712 LL Groningen">
-								<td class="name"><a href="http://www.simplonjongerenhotel.nl" target="_blank">Simplon Jongerenhotel</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="http://www.simplonjongerenhotel.nl"
+									class="location" target="_blank"
+									data-address="Boterdiep 73-2 9712 LL Groningen"
+									data-place-id="ChIJxaVXNFvNyUcRIzVNWiFFN5M"
+									data-lat-lng="53.224777,6.5638552">Simplon Jongerenhotel</a></td>
 								<td class="stars"></td>
 								<td class="distance">1.1 km <time>15 min</time></td>
 								<td class="distance">0.7 km</td>
@@ -140,8 +159,12 @@
 							<tr class="notes">
 								<td colspan="7">Hostel. This price is for a 1 person bed on a dormitory.</td>
 							</tr>
-							<tr class="hotel" data-address="Radesingel 50 9711 EK Groningen">
-								<td class="name"><a href="https://hampshire-groningen.nl/" target="_blank">Hampshire Hotel Groningen Centre</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="https://hampshire-groningen.nl/"
+									class="location" target="_blank"
+									data-address="Radesingel 50 9711 EK Groningen"
+									data-place-id="ChIJQ_t8HlbNyUcRT_pUkx_y8Uo"
+									data-lat-lng="53.2158746,6.5749773">Hampshire Hotel Groningen Centre</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">1.8 km <time>20 min</time></td>
 								<td class="distance">0.6 km</td>
@@ -149,8 +172,12 @@
 								<td class="price">€ 96.-</td>
 								<td class="breakfast">€ 15.-</td>
 							</tr>
-							<tr class="hotel" data-address="Turftorenstraat 11A 9712 BL Groningen">
-								<td class="name"><a href="https://www.booking.com/hotel/nl/trip-en-co.en-us.html" target="_blank">B&amp;B Trip&amp;Co</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="https://www.booking.com/hotel/nl/trip-en-co.en-us.html"
+									class="location" target="_blank"
+									data-address="Turftorenstraat 11A 9712 BL Groningen"
+									data-place-id="ChIJaWQqLU7NyUcR_c7zsuhks2w"
+									data-lat-lng="53.2182954,6.561365099999999">B&amp;B Trip&amp;Co</a></td>
 								<td class="stars"></td>
 								<td class="distance">600 m <time>7 min</time></td>
 								<td class="distance">0.4 km</td>
@@ -158,8 +185,12 @@
 								<td class="price">€ 103,-</td>
 								<td class="breakfast"><abbr title="Included">Incl.</abbr></td>
 							</tr>
-							<tr class="hotel" data-address="Oude Boteringestraat 74, 9712 GN Groningen">
-								<td class="name"><a href="http://www.corpsdegarde.nl" target="_blank">Hotel Corps de Garde</a></td>
+							<tr class="hotel">
+								<td class="name"><a href="http://www.corpsdegarde.nl"
+									class="location" target="_blank"
+									data-address="Oude Boteringestraat 74, 9712 GN Groningen"
+									data-place-id="ChIJC9dYqlrNyUcRkw8HfwFs4gs"
+									data-lat-lng="53.22101379999999,6.562835199999999">Hotel Corps de Garde</a></td>
 								<td class="stars">&starf;&starf;&starf;</td>
 								<td class="distance">700 m <time>9 min</time></td>
 								<td class="distance">0.4 km</td>
@@ -178,10 +209,30 @@
 				<p>Contact: <a href="mailto:Elina Sietsema &lt;e.sietsema@rug.nl&gt;">Elina Sietsema (e.sietsema@rug.nl)</a></p>
 			</div>
 		</footer>
-		
 		<script>
 			function $(selector, callback) {
-				Array.prototype.forEach.call(document.querySelectorAll(selector), callback);
+				return Array.prototype.map.call(document.querySelectorAll(selector), callback);
+			}
+
+			function $h(tagName, properties, content) {
+				var el = document.createElement(tagName);
+
+				Object.keys(properties).forEach(function(key) {
+					el[key] = properties[key];
+				});
+
+				if (!Array.isArray(content))
+					content = [content];
+
+				content.forEach(function(child) {
+					try {
+						el.appendChild(child);
+					} catch (e) {
+						el.appendChild(document.createTextNode(child));
+					}
+				});
+
+				return el;
 			}
 			
 			$('.hotels tr.notes', function(tr) {
@@ -193,15 +244,73 @@
 				tr.appendChild(td);
 				
 				if (tr.nextElementSibling && tr.nextElementSibling.className == 'notes') {
-					var button = document.createElement('button');
-					button.className = 'info';
-					button.textContent = 'Info';
+					var button = $h('button', {className: 'info'}, 'Info');
 					button.addEventListener('click', function() {
 						tr.nextElementSibling.style.display = tr.nextElementSibling.style.display == 'none' ? '' : 'none';
 					});
 					td.appendChild(button);
 				}
 			});
+
+			function parseLatLng(text) {
+				var parts = text.split(',', 2);
+				return {
+					lat: parseFloat(parts[0], 10),
+					lng: parseFloat(parts[1], 10)
+				};
+			}
+
+			function initMap() {
+				var mapEl = document.getElementById('google-map');
+				var map = new google.maps.Map(mapEl, {
+					zoom: parseInt(mapEl.dataset.zoom),
+					center: parseLatLng(mapEl.dataset.latLng)
+				});
+
+				var popup = new google.maps.InfoWindow({
+					content: ''
+				});
+
+				var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     			var labelIndex = 0;
+
+				window.map = map;
+
+				var markers = $('.location', function(el) {
+					var latlng = parseLatLng(el.dataset.latLng);
+					var label = labels[labelIndex++ % labels.length];
+					var options = {
+						map: map,
+						position: latlng,
+						label: label,
+					};
+
+					var marker = new google.maps.Marker(options);
+
+					marker.addListener('click', function() {
+						popup.setContent($h('div', {}, [
+							$h('h1', {}, el.textContent),
+							$h('p', {}, el.dataset.address)
+						]));
+						popup.open(map, marker);
+					});
+
+					var sup = $h('sup', {className: 'marker-label'}, label);
+					el.parentNode.insertBefore(sup, el.nextSilbing);
+
+					sup.addEventListener('click', function(e) {
+						// Todo: scroll to map
+
+						markers.forEach(function(other) {
+							// Todo: bounce only shortly
+							other.setAnimation(other === marker ? google.maps.Animation.BOUNCE : null);
+						});
+					});
+
+					return marker;
+				});
+			}
 		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAstLmf39wUegs84_GaXrP_qRusAdKdpP8&callback=initMap"></script>
 	</body>
 </html>
