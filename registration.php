@@ -45,7 +45,7 @@ $errors = $registration_form->submitted() ? $registration_form->validate() : arr
 				<a href="cfp.html">Call for papers</a>
 				<a href="committees.html">Committees</a>
 				<!-- <a href="important-dates.html">Important dates</a> -->
-				<a href="location.html">Location</a>
+				<a href="practicalities.html">Practicalities</a>
 				<a href="registration.php" class="registration active">Registration</a>
 			</div>
 		</nav>

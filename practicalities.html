@@ -24,7 +24,7 @@
 				<a href="cfp.html">Call for papers</a>
 				<a href="committees.html">Committees</a>
 				<!-- <a href="important-dates.html">Important dates</a> -->
-				<a href="location.html" class="active">Location</a>
+				<a href="practicalities.html" class="active">Practicalities</a>
 			</div>
 		</nav>
 
@@ -41,7 +41,7 @@
 						<figcaption>Het Kasteel (<a href="https://nl.wikipedia.org/wiki/Bestand:100423_Mineralogisch-Geologisch_Instituut_Groningen_NL.jpg">source</a>)</figcaption>
 					</figure>
 				</section>
-				<section>
+				<section id="map-section">
 					<h1>Map</h1>
 					<p>The exact address of Het Kasteel is Melkweg 1, 9718 EP Groningen, the Netherlands.</p>
 					<div id="google-map" class="embedded-map"
@@ -287,24 +287,29 @@
 
 					var marker = new google.maps.Marker(options);
 
-					marker.addListener('click', function() {
+					var showPopup = function() {
 						popup.setContent($h('div', {}, [
-							$h('h1', {}, el.textContent),
+							$h('h1', {}, [
+								$h('a', {href: el.href, target: '_blank'}, el.textContent)
+							]),
 							$h('p', {}, el.dataset.address)
 						]));
 						popup.open(map, marker);
-					});
+					};
+
+					marker.addListener('click', showPopup);
 
 					var sup = $h('sup', {className: 'marker-label'}, label);
 					el.parentNode.insertBefore(sup, el.nextSilbing);
 
 					sup.addEventListener('click', function(e) {
-						// Todo: scroll to map
-
-						markers.forEach(function(other) {
-							// Todo: bounce only shortly
-							other.setAnimation(other === marker ? google.maps.Animation.BOUNCE : null);
-						});
+						// Scroll the map into view
+						var section = document.getElementById('map-section');
+						var nav = document.querySelector('nav.website-navigation');
+						window.scroll(0, section.offsetTop - 1.5 * nav.offsetHeight);
+						
+						// Show the popup on the map
+						showPopup();
 					});
 
 					return marker;
