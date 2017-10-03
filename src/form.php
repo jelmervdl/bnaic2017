@@ -81,7 +81,10 @@ abstract class FormField
 
 	protected function render_group($field, &$error = null)
 	{
-		$label = sprintf('<label for="%s">%s:</label>', $this->attributes['id'], htmlspecialchars($this->label));
+		$label = sprintf('<label for="%s">%s%s</label>',
+			$this->attributes['id'],
+			htmlspecialchars($this->label),
+			strlen($this->label) > 0 ? ':' : '');
 
 		$hint = !empty($error)
 			? sprintf('<p class="hint">%s</p>', htmlspecialchars($error))
@@ -151,5 +154,77 @@ class FormSelectField extends FormField
 		$field = sprintf('<select %s>%s</select>', $this->render_attributes($this->attributes), implode("\n\t", $html_options));
 
 		return $this->render_group($field, $errors[$this->name]);
+	}
+}
+
+class FormRadioField extends FormField
+{
+	public function __construct($name, $label, array $options, array $attributes = array())
+	{
+		parent::__construct($name, $label, $attributes);
+		unset($this->attributes['name']);
+		$this->options = $options;
+	}
+
+	public function render(array &$errors = array())
+	{
+		$html_options = array();
+
+		foreach ($this->options as $option_value => $option_label)
+			$html_options[] = sprintf('<li><label><input type="radio" name="%s" value="%s"%s> %s</label></li>',
+				htmlspecialchars($this->name, ENT_QUOTES),
+				htmlspecialchars($option_value, ENT_QUOTES),
+				$this->value() == $option_value ? ' checked' : '',
+				htmlspecialchars($option_label));
+
+		$field = sprintf('<ul %s>%s</ul>', $this->render_attributes($this->attributes), implode("\n\t", $html_options));
+
+		return $this->render_group($field, $errors[$this->name]);
+	}
+
+	protected function render_group($field, &$error = null)
+	{
+		$hint = !empty($error)
+			? sprintf('<p class="hint">%s</p>', htmlspecialchars($error))
+			: '';
+
+		return sprintf('<div class="form-group choice %s">%s%s</div>',
+			!empty($this->attributes['required']) ? ' required' : '',
+			$field,
+			$hint);
+	}
+}
+
+class FormCheckboxField extends FormField
+{
+	protected $default_attributes = array(
+		'type' => 'checkbox',
+		'value' => 'on'
+	);
+
+	public function render(array &$errors = null)
+	{
+		$attributes = array_merge($this->default_attributes, $this->attributes);
+
+		if ($this->value() !== null)
+			$attributes = array_merge($attributes, array('checked' => 'checked'));
+
+		$field = sprintf('<label><input %s>%s</label>',
+			$this->render_attributes($attributes),
+			htmlentities($this->label, ENT_COMPAT));
+
+		return $this->render_group($field, $errors[$this->name]);
+	}
+
+	protected function render_group($field, &$error = null)
+	{
+		$hint = !empty($error)
+			? sprintf('<p class="hint">%s</p>', htmlspecialchars($error))
+			: '';
+
+		return sprintf('<div class="form-group choice %s">%s%s</div>',
+			!empty($this->attributes['required']) ? ' required' : '',
+			$field,
+			$hint);
 	}
 }

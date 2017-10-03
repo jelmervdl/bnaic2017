@@ -260,6 +260,10 @@ footer a {
 }
 
 /* Registration form */
+.form-grouping + .form-grouping {
+	margin-top: 2em;
+}
+
 .form-group {
 	display: block;
 }
@@ -274,13 +278,19 @@ footer a {
 	color: red;
 }
 
+.form-group.choice ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .form-group input,
 .form-group select {
 	display: block;
 	font: inherit;
 }
 
-.form-group input {
+.form-group input:not([type=radio]):not([type=checkbox]) {
 	box-sizing: border-box;
 	width: 100%;
 }
@@ -298,11 +308,15 @@ footer a {
 
 @media (min-width: 700px) {
 	/* Labels fit next to the field here */
-	.form-group label {
+	.form-group:not(.choice) label {
 		display: inline-block;
 		width: 200px;
 		text-align: right;
 		padding-right: 1em;
+	}
+
+	.form-group.choice {
+		padding-left: 200px;
 	}
 
 	.form-group input,
@@ -310,7 +324,7 @@ footer a {
 		display: inline-block;
 	}
 
-	.form-group input {
+	.form-group input:not([type=radio]):not([type=checkbox]) {
 		width: 500px;
 	}
 

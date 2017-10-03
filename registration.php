@@ -5,16 +5,34 @@ ini_set('display_errors', true);
 
 require 'src/form.php';
 
+$late = time() > mktime(0, 0, 0, 10, 28);
+
+if ($late) {
+	$rates = array(
+		'student' => 'Bachelor or Master student (€ 50)',
+		'phd' => 'PhD student (€ 130)',
+		'regular' => 'Regular (€ 180)'
+	);
+} else {
+	$rates = array(
+		'student' => 'Bachelor or Master student (€ 50)',
+		'phd' => 'PhD student (€ 110)',
+		'regular' => 'Regular (€ 160)'
+	);
+}
+
 $registration_form = new Form();
 $registration_form->add(new FormTextField('first_name', 'First name', array('required' => true)));
 $registration_form->add(new FormTextField('last_name', 'Last name', array('required' => true)));
 $registration_form->add(new FormEmailField('email', 'Email address', array('required' => true)));
-
-$registration_form->add(new FormSelectField('register_as', 'Registering as', array(
-							'student' => 'BSc or MSc student',
-							'phd' => 'PhD student',
-							'regular' => 'Regular'
-						), array('required' => true)));
+$registration_form->add(new FormEmailField('address1', 'Address', array('required' => true)));
+$registration_form->add(new FormEmailField('address2', ''));
+$registration_form->add(new FormEmailField('city', 'Town/City/Region', array('required' => true)));
+$registration_form->add(new FormEmailField('country', 'Country', array('required' => true)));
+$registration_form->add(new FormRadioField('register_as', 'Registering as', $rates, array('required' => true)));
+$registration_form->add(new FormTextField('affiliation', 'Affiliation'));
+$registration_form->add(new FormCheckboxField('diner', 'I want to join the conference diner (€ 50)'));
+$registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren'));
 
 $errors = $registration_form->submitted() ? $registration_form->validate() : array();
 
@@ -59,12 +77,27 @@ $errors = $registration_form->submitted() ? $registration_form->validate() : arr
 				<section>
 					<form method="post" action="registration.php">
 						<h3>Personal</h3>
-						<?= $registration_form->first_name->render($errors) ?>
-						<?= $registration_form->last_name->render($errors) ?>
-						<?= $registration_form->email->render($errors) ?>
+						<div class="form-grouping">
+							<?= $registration_form->first_name->render($errors) ?>
+							<?= $registration_form->last_name->render($errors) ?>
+						</div>
+						<div class="form-grouping">
+							<?= $registration_form->email->render($errors) ?>
+						</div>
+						<div class="form-grouping">
+							<?= $registration_form->address1->render($errors) ?>
+							<?= $registration_form->address2->render($errors) ?>
+							<?= $registration_form->city->render($errors) ?>
+							<?= $registration_form->country->render($errors) ?>
+						</div>
 
 						<h3>Relation</h3>
 						<?= $registration_form->register_as->render($errors) ?>
+						<?= $registration_form->affiliation->render($errors) ?>
+
+						<h3>Additional</h3>
+						<?= $registration_form->diner->render($errors) ?>
+						<?= $registration_form->martinitoren->render($errors) ?>
 	
 						<div class="form-controls">
 							<button type="submit">Submit registration</button>
