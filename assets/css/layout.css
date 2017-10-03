@@ -147,7 +147,7 @@ html, body {
 .website-navigation.fixed a,
 .website-navigation.fixed a:link,
 .website-navigation.fixed a:visited {
-	padding: 0 2em;
+	padding: 0 1em;
 	margin: 0;
 	color: black;
 	border: 0;
