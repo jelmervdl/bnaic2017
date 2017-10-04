@@ -3,21 +3,14 @@
 class CSVFile {
 	public function __construct($path)
 	{
-		// Todo: locking (really? Yeah, sorry...)
 		$this->path = $path;
 
-		if (file_exists($this->path)) {
-			$this->fh = fopen($this->path, 'r+');
-		} else {
-			$this->fh = fopen($this->path, 'w+');
-		}
-
-		if (!$this->fh)
+		if (($this->fh = fopen($this->path, 'r+')) === false)
 			throw new Exception('Could not open file for writing');
 
 		$this->columns = fgetcsv($this->fh);
 
-		if (!$this->columns)
+		if ($this->columns === false)
 			$this->columns = array();
 	}
 
@@ -72,6 +65,9 @@ class CSVFile {
 
 		// Clear the file
 		ftruncate($this->fh, 0);
+
+		// Rewind (again) to start writing at the beginning of the file
+		fseek($this->fh, 0, SEEK_SET);
 
 		// Write all the data back
 		foreach ($rows as $row)

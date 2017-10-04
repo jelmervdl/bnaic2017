@@ -29,11 +29,6 @@ class Email
 
 	public $body = '';
 
-	public function __construct()
-	{
-
-	}
-
 	public function send($address)
 	{
 		$subject = null;
@@ -51,6 +46,6 @@ class Email
 			}
 		}
 
-		return mail($address, $subject, $body, implode("\r\n", $headers));
+		return mail($address, $subject, $this->body, implode("\r\n", $headers));
 	}
 }

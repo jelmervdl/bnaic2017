@@ -10,7 +10,7 @@ class FormatterCallback
 	}
 
 	public function __invoke($match) {
-		$path = explode('[', $match[1]);
+		$path = explode('[', $match['key']);
 
 		// remove ] from all 1..n components
 		for ($i = 1; $i < count($path); ++$i)
@@ -29,8 +29,11 @@ class FormatterCallback
 		}
 
 		// If there is a modifier, apply it
-		if (isset($match[2]))
-			$value = call_user_func($match[2], $value);
+		if (isset($match['formatter'])) {
+			$args = !empty($match['args']) ? eval('return array(' . $match['args'] . ');') : array();
+			array_unshift($args, $value);
+			$value = call_user_func_array($match['formatter'], $args);
+		}
 
 		return $value;
 	}
@@ -42,7 +45,14 @@ function format_string($format, $params)
 		throw new InvalidArgumentException('$params has to behave like an array');
 
 	return preg_replace_callback(
-		'/\$([a-z][a-z0-9_]*(?:\[[a-z0-9_]+\])*)(?:\|([a-z_]+))?/i',
+		'/\$(?<key>[a-z][a-z0-9_]*(?:\[[a-z0-9_]+\])*)(?:\|(?<formatter>[a-z_]+)(\((?<args>[^\)]*)\))?)?/i',
 		new FormatterCallback($params),
 		$format);
 }
+
+function _if($test, $true, $false) {
+	return $test ? $true : $false;
+}
+
+// test case:
+//var_dump(format_string('This is a test $test|_if("true", "false") etceter(a)', ['test' => 'd"ata']));

@@ -1,0 +1,105 @@
+<?php
+
+require_once 'src/rates.php';
+
+if (!isset($_GET['rate']) || !array_key_exists($_GET['rate'], $rates)) {
+	header('Location: index.html');
+	exit;
+}
+
+$dinner = !empty($_GET['dinner']);
+
+$rate = $rates[$_GET['rate']];
+
+$total = $rate['price'] + ($dinner ? $dinner_rate : 0);
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Committees &middot; BNAIC 2017</title>
+		<meta name="description" content="The 29th Benelux Conference on Artificial Intelligence">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/css/layout.css">
+	</head>
+	<body>
+		<header class="website-header small">
+			<div class="text">
+				<div class="container">
+					<h1>BNAIC 2017</h1>
+					<p>The 29th Benelux Conference on Artificial Intelligence</p>
+					<p>November 8&ndash;9, 2017 in Groningen, The Netherlands</p>
+				</div>
+			</div>
+		</header>
+
+		<nav class="website-navigation fixed" tabindex="-1">
+			<div class="container">
+				<a href="index.html#home">Home</a>
+				<a href="cfp.html">Call for papers</a>
+				<a href="committees.html">Committees</a>
+				<a href="practicalities.html">Practicalities</a>
+				<a href="registration.php" class="registration active">Registration</a>
+			</div>
+		</nav>
+
+		<div class="website-content">
+			<div class="container">
+				<section>
+					<h2>Thank you!</h2>
+					<p>Thank you for your registration! We have sent you an email as a confirmation.</p>
+				
+					<h3>Payment details</h3>
+					<p>
+						You have registered as a <?= htmlentities($rate['label']) ?>.
+						<?php if ($dinner): ?>You've also opted to join the dinner.<?php endif ?>
+						Would you be so kind to transfer € <?=$total?> to the following account?
+					</p>
+					<p>Note: we have also sent you this information in your confirmation email.</p>
+
+					<dl class="payment-details">
+						<dt>Addressee</dt>
+						<dd>
+							Rijksuniversiteit Groningen<br>
+							Fac. Wiskunde en Natuurwetenschappen<br>
+							Nijenborg 4<br>
+							9747 AG  Groningen 
+						</dd>
+
+						<dt>Bank</dt>
+						<dd>
+							ABN-AMRO<br>
+							Zuiderzeelaan 53<br>
+							Postbus 686<br>
+							8000 AR Zwolle
+						</dd>
+							
+						<dt>IBAN</dt>
+						<dd>NL45ABNA0474567206</dd>
+				
+						<dt>BIC</dt>
+						<dd>ABN ANL 2A</dd>
+						
+						<dt>Description</dt>
+						<dd>
+							Project code 190 193 412<br>
+							BNAIC 2017
+						</dd>
+
+						<dt>Amount</dt>
+						<dd>€ <?=$total?></dd>
+					</dl>
+
+					<p>Please don't forget to mention both the project code <em>190 193 412</em> and <em>BNAIC 2017</em> in your description.</p>
+				</section>
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<p>Contact: <a href="mailto:Elina Sietsema &lt;e.sietsema@rug.nl&gt;">Elina Sietsema (e.sietsema@rug.nl)</a></p>
+			</div>
+		</footer>
+	</body>
+</html>

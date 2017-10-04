@@ -3,25 +3,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 
-require 'src/form.php';
-require 'src/csv.php';
-require 'src/mail.php';
+require_once 'src/form.php';
+require_once 'src/csv.php';
+require_once 'src/mail.php';
+require_once 'src/rates.php'; // includes $rates and $late
 
-$late = time() > mktime(0, 0, 0, 10, 28);
+$options = array();
 
-if ($late) {
-	$rates = array(
-		'student' => 'Bachelor or Master student (€ 50)',
-		'phd' => 'PhD student (€ 130)',
-		'regular' => 'Regular (€ 180)'
-	);
-} else {
-	$rates = array(
-		'student' => 'Bachelor or Master student (€ 50)',
-		'phd' => 'PhD student (€ 110)',
-		'regular' => 'Regular (€ 160)'
-	);
-}
+foreach ($rates as $name => $rate)
+	$options[$name] = sprintf('%s (€ %d)', $rate['label'], $rate['price']);
 
 $registration_form = new Form();
 $registration_form->add(new FormTextField('first_name', 'First name', array('required' => true)));
@@ -31,28 +21,38 @@ $registration_form->add(new FormTextField('address1', 'Address', array('required
 $registration_form->add(new FormTextField('address2', ''));
 $registration_form->add(new FormTextField('city', 'Town/City/Region', array('required' => true)));
 $registration_form->add(new FormTextField('country', 'Country', array('required' => true)));
-$registration_form->add(new FormRadioField('register_as', 'Registering as', $rates, array('required' => true)));
+$registration_form->add(new FormRadioField('register_as', 'Registering as', $options, array('required' => true)));
 $registration_form->add(new FormTextField('affiliation', 'Affiliation'));
-$registration_form->add(new FormCheckboxField('diner', 'I want to join the conference diner (&euro; 50)'));
+$registration_form->add(new FormCheckboxField('dinner', sprintf('I want to join the conference dinner (&euro; %d)', $dinner_rate)));
 $registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren'));
 
 $errors = $registration_form->submitted() ? $registration_form->validate() : array();
 
 if ($registration_form->submitted() && count($errors) == 0) {
+	// Combine all the data (and calculate the total amount due)
+	$data = $registration_form->data();
+	$data['total'] = $rates[$data['register_as']]['price'] + (!empty($data['dinner']) ? $dinner_rate : 0);
+
 	// First, add the info to a CSV file here on the server
 	$csv = new CSVFile('data/signups.txt');
-	$csv->add($registration_form->data());
+	$csv->add($data);
 
 	// Then, make sure Elina receives a mail about it
-	$mail_elina = Email::fromTemplate('mails/elina.txt', $registration_form->data());
+	$mail_elina = Email::fromTemplate('mails/elina.txt', $data);
 	$mail_elina->send('e.sietsema@rug.nl');
 
 	// Also, let the person in question know that their registration has come through
 	// (and tell them what to do next)
-	$mail_registrant = Email::fromTemplate('mails/registrant.txt', $registration_form->data());
+	$mail_registrant = Email::fromTemplate('mails/registrant.txt', $data);
 	$mail_registrant->send($registration_form->email->value());
 
 	// Finally, show the payment instructions
+	$link = sprintf('payment-details.php?rate=%s&dinner=%s',
+		rawurlencode($registration_form->register_as->value()),
+		rawurlencode($registration_form->dinner->value()));
+	header('Location: ' . $link);
+	echo 'Registration succeeded. Redirecting you to <a href="' . htmlentities($link) .'">the payment details page</a>.';
+	exit;
 }
 
 ?>
@@ -81,7 +81,6 @@ if ($registration_form->submitted() && count($errors) == 0) {
 				<a href="index.html#home">Home</a>
 				<a href="cfp.html">Call for papers</a>
 				<a href="committees.html">Committees</a>
-				<!-- <a href="important-dates.html">Important dates</a> -->
 				<a href="practicalities.html">Practicalities</a>
 				<a href="registration.php" class="registration active">Registration</a>
 			</div>
@@ -115,7 +114,7 @@ if ($registration_form->submitted() && count($errors) == 0) {
 						<?= $registration_form->affiliation->render($errors) ?>
 
 						<h3>Additional</h3>
-						<?= $registration_form->diner->render($errors) ?>
+						<?= $registration_form->dinner->render($errors) ?>
 						<?= $registration_form->martinitoren->render($errors) ?>
 	
 						<div class="form-controls">

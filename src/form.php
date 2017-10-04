@@ -69,8 +69,8 @@ abstract class FormField
 
 	public function validate()
 	{
-		if (!empty($attributes['required']) && $this->value() == '')
-			return 'This field cannot be left empty';
+		if (!empty($this->attributes['required']) && $this->value() == '')
+			return 'This field should not be left empty';
 
 		return null;
 	}
@@ -181,7 +181,7 @@ class FormRadioField extends FormField
 		$html_options = array();
 
 		foreach ($this->options as $option_value => $option_label)
-			$html_options[] = sprintf('<li><label><input type="radio" name="%s" value="%s"%s> %s</label></li>',
+			$html_options[] = sprintf('<li><label class="option"><input type="radio" name="%s" value="%s"%s> %s</label></li>',
 				htmlspecialchars($this->name, ENT_QUOTES),
 				htmlspecialchars($option_value, ENT_QUOTES),
 				$this->value() == $option_value ? ' checked' : '',
@@ -194,14 +194,19 @@ class FormRadioField extends FormField
 
 	protected function render_group($field, &$error = null)
 	{
+		$label = sprintf('<label>%s%s</label>',
+			htmlspecialchars($this->label),
+			strlen($this->label) > 0 ? ':' : '');
+
 		$hint = !empty($error)
 			? sprintf('<p class="hint">%s</p>', htmlspecialchars($error))
 			: '';
 
-		return sprintf('<div class="form-group choice %s">%s%s</div>',
+		return sprintf('<div class="form-group choice%s">%s%s%s</div>',
 			!empty($this->attributes['required']) ? ' required' : '',
+			$label,
 			$field,
-			$hint);
+			$hint);	
 	}
 }
 
@@ -209,7 +214,7 @@ class FormCheckboxField extends FormField
 {
 	protected $default_attributes = array(
 		'type' => 'checkbox',
-		'value' => 'on'
+		'value' => 'yes'
 	);
 
 	public function render(array &$errors = null)
@@ -219,7 +224,7 @@ class FormCheckboxField extends FormField
 		if ($this->value() !== null)
 			$attributes = array_merge($attributes, array('checked' => 'checked'));
 
-		$field = sprintf('<label><input %s> %s</label>',
+		$field = sprintf('<label class="option"><input %s> %s</label>',
 			$this->render_attributes($attributes), $this->label);
 
 		return $this->render_group($field, $errors[$this->name]);
@@ -231,7 +236,7 @@ class FormCheckboxField extends FormField
 			? sprintf('<p class="hint">%s</p>', htmlspecialchars($error))
 			: '';
 
-		return sprintf('<div class="form-group choice %s">%s%s</div>',
+		return sprintf('<div class="form-group checkbox %s">%s%s</div>',
 			!empty($this->attributes['required']) ? ' required' : '',
 			$field,
 			$hint);

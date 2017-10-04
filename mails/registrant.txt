@@ -1,0 +1,67 @@
+From: BNAIC 2017 <noreply@ai.rug.nl>
+Subject: Registration BNAIC 2017
+MIME-Version: 1.0
+Content-type: text/html; charset=utf-8
+
+<html>
+<body style="font-family:sans-serif">
+<p>Dear $first_name,</p>
+<p>This mail confirms that you have just registered for attending the BNAIC 2017 conference on 8 and 9 November in Groningen. Below follow a copy of your information and payment details.</p>
+
+<p>Don't forget to check our <a href="http://bnaic2017.ai.rug.nl/practicalities.html">practicalities page</a>!</p>
+
+<h2>Registration info</h2>
+<table>
+	<tr><th style="text-align:left">First name</th><td>$first_name|htmlentities</td></tr>
+	<tr><th style="text-align:left">Last name</th><td>$last_name|htmlentities</td></tr>
+	<tr><th style="text-align:left">Email</th><td>$email|htmlentities</td></tr>
+	<tr><th style="text-align:left">Address line 1</th><td>$address1|htmlentities</td></tr>
+	<tr><th style="text-align:left">Address line 2</th><td>$address2|htmlentities</td></tr>
+	<tr><th style="text-align:left">City</th><td>$city|htmlentities</td></tr>
+	<tr><th style="text-align:left">Country</th><td>$country|htmlentities</td></tr>
+	<tr><th style="text-align:left">Attending as</th><td>$register_as|htmlentities</td></tr>
+	<tr><th style="text-align:left">Affiliation</th><td>$affiliation|htmlentities</td></tr>
+	<tr><th style="text-align:left">Dinner</th><td>$diner|_if('Attending', 'No')</td></tr>
+	<tr><th style="text-align:left">Trip to Martinitoren</th><td>$martinitoren|_if('Attending', 'No')</td></tr>
+</table>
+
+<h2>Payment details</h2>
+<dl>
+	<dt>Addressee</dt>
+	<dd>
+		Rijksuniversiteit Groningen<br>
+		Fac. Wiskunde en Natuurwetenschappen<br>
+		Nijenborg 4<br>
+		9747 AG  Groningen 
+	</dd>
+
+	<dt>Bank</dt>
+	<dd>
+		ABN-AMRO<br>
+		Zuiderzeelaan 53<br>
+		Postbus 686<br>
+		8000 AR Zwolle
+	</dd>
+		
+	<dt>IBAN</dt>
+	<dd>NL45ABNA0474567206</dd>
+
+	<dt>BIC</dt>
+	<dd>ABN ANL 2A</dd>
+	
+	<dt>Description</dt>
+	<dd>
+		Project code 190 193 412<br>
+		BNAIC 2017
+	</dd>
+
+	<dt>Amount</dt>
+	<dd>€ $total</dd>
+</dl>
+
+<p>Please don't forget to mention both the project code <em>190 193 412</em> and <em>BNAIC 2017</em> in your description.</p>
+
+<p>We'll see you on 8 November in Het Kasteel, Melkweg 1, 9718 EP Groningen!</p>
+
+</body>
+</html>

@@ -284,6 +284,10 @@ footer a {
 	padding: 0;
 }
 
+.form-group.choice label.option::after {
+	content: none;
+}
+
 .form-group input,
 .form-group select {
 	display: block;
@@ -293,6 +297,12 @@ footer a {
 .form-group input:not([type=radio]):not([type=checkbox]) {
 	box-sizing: border-box;
 	width: 100%;
+}
+
+.form-group .hint {
+	background: #f55;
+	padding: 0.25em 0.5em;
+	color: white;
 }
 
 .form-controls {
@@ -308,15 +318,11 @@ footer a {
 
 @media (min-width: 700px) {
 	/* Labels fit next to the field here */
-	.form-group:not(.choice) label {
+	.form-group label:not(.option) {
 		display: inline-block;
 		width: 200px;
 		text-align: right;
 		padding-right: 1em;
-	}
-
-	.form-group.choice {
-		padding-left: 200px;
 	}
 
 	.form-group input,
@@ -324,12 +330,24 @@ footer a {
 		display: inline-block;
 	}
 
+	.form-group.choice ul {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.form-group.checkbox {
+		margin-left: 200px;	
+	}
+
 	.form-group input:not([type=radio]):not([type=checkbox]) {
 		width: 500px;
 	}
 
+	.form-group .hint,
 	.form-controls {
-		padding-left: 200px;
+		margin-left: 200px;
+		max-width: 500px;
+		box-sizing: border-box;
 	}
 }
 
@@ -388,4 +406,28 @@ footer a {
 	line-height: 1.33;
 	padding-bottom: 0.33em;
 	color: #333;
+}
+
+/* Payment details */
+.payment-details::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.payment-details dt {
+	font-weight: bold;
+	float: left;
+	width: 15ch;
+	clear: both;
+}
+
+.payment-details dt::after {
+	content: ':';
+}
+
+.payment-details dd {
+	margin: 0 0 1em 1em;
+	min-width: 35ch;
+	float: left;
 }
