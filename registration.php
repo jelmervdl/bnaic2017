@@ -34,7 +34,7 @@ if ($registration_form->submitted() && count($errors) == 0) {
 	$data['total'] = $rates[$data['register_as']]['price'] + (!empty($data['dinner']) ? $dinner_rate : 0);
 
 	// First, add the info to a CSV file here on the server
-	$csv = new CSVFile('data/signups.txt');
+	$csv = new CSVFile('../data/signups.txt');
 	$csv->add($data);
 
 	// Then, make sure Elina receives a mail about it
