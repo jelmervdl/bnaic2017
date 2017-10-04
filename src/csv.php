@@ -5,7 +5,7 @@ class CSVFile {
 	{
 		$this->path = $path;
 
-		if (($this->fh = fopen($this->path, 'r+')) === false)
+		if (($this->fh = fopen($this->path, 'a+')) === false)
 			throw new Exception('Could not open file for writing');
 
 		$this->columns = fgetcsv($this->fh);
