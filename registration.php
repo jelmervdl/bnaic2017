@@ -39,7 +39,8 @@ if ($registration_form->submitted() && count($errors) == 0) {
 
 	// Then, make sure Elina receives a mail about it
 	$mail_elina = Email::fromTemplate('mails/elina.txt', $data);
-	$mail_elina->send('e.sietsema@rug.nl');
+	// $mail_elina->send('e.sietsema@rug.nl');
+	$mail_elina->send('jelmer@ikhoefgeen.nl');
 
 	// Also, let the person in question know that their registration has come through
 	// (and tell them what to do next)
