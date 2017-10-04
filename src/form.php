@@ -32,6 +32,16 @@ class Form
 
 		return $errors;
 	}
+
+	public function data()
+	{
+		$data = array();
+
+		foreach ($this->fields as $name => $field)
+			$data[$name] = $field->value();
+		
+		return $data;
+	}
 }
 
 abstract class FormField
@@ -209,9 +219,8 @@ class FormCheckboxField extends FormField
 		if ($this->value() !== null)
 			$attributes = array_merge($attributes, array('checked' => 'checked'));
 
-		$field = sprintf('<label><input %s>%s</label>',
-			$this->render_attributes($attributes),
-			htmlentities($this->label, ENT_COMPAT));
+		$field = sprintf('<label><input %s> %s</label>',
+			$this->render_attributes($attributes), $this->label);
 
 		return $this->render_group($field, $errors[$this->name]);
 	}

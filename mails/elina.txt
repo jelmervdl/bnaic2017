@@ -1,0 +1,25 @@
+From: BNAIC Website <noreply@ai.rug.nl>
+Subject: Aanmelding BNAIC 2017
+MIME-Version: 1.0
+Content-type: text/html; charset=utf-8
+
+<html>
+<body>
+<p>Hoi Elina, $first_name heeft zich aangemeld voor de BNAIC:</p>
+
+<table>
+	<tr><th>Voornaam</th><td>$first_name|htmlentities</td></tr>
+	<tr><th>Achternaam</th><td>$last_name|htmlentities</td></tr>
+	<tr><th>E-mail</th><td>$email|htmlentities</td></tr>
+	<tr><th>Adres 1</th><td>$address1|htmlentities</td></tr>
+	<tr><th>Adres 2</th><td>$address2|htmlentities</td></tr>
+	<tr><th>Plaats</th><td>$city|htmlentities</td></tr>
+	<tr><th>Land</th><td>$country|htmlentities</td></tr>
+	<tr><th>Type</th><td>$register_as|htmlentities</td></tr>
+	<tr><th>Verbonden aan</th><td>$affiliation|htmlentities</td></tr>
+	<tr><th>Wil mee naar Diner</th><td>$diner|htmlentities</td></tr>
+	<tr><th>Wil mee naar Martinitoren</th><td>$martinitoren|htmlentities</td></tr>
+</table>
+
+</body>
+</html>

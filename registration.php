@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 
 require 'src/form.php';
+require 'src/csv.php';
+require 'src/mail.php';
 
 $late = time() > mktime(0, 0, 0, 10, 28);
 
@@ -25,16 +27,33 @@ $registration_form = new Form();
 $registration_form->add(new FormTextField('first_name', 'First name', array('required' => true)));
 $registration_form->add(new FormTextField('last_name', 'Last name', array('required' => true)));
 $registration_form->add(new FormEmailField('email', 'Email address', array('required' => true)));
-$registration_form->add(new FormEmailField('address1', 'Address', array('required' => true)));
-$registration_form->add(new FormEmailField('address2', ''));
-$registration_form->add(new FormEmailField('city', 'Town/City/Region', array('required' => true)));
-$registration_form->add(new FormEmailField('country', 'Country', array('required' => true)));
+$registration_form->add(new FormTextField('address1', 'Address', array('required' => true)));
+$registration_form->add(new FormTextField('address2', ''));
+$registration_form->add(new FormTextField('city', 'Town/City/Region', array('required' => true)));
+$registration_form->add(new FormTextField('country', 'Country', array('required' => true)));
 $registration_form->add(new FormRadioField('register_as', 'Registering as', $rates, array('required' => true)));
 $registration_form->add(new FormTextField('affiliation', 'Affiliation'));
-$registration_form->add(new FormCheckboxField('diner', 'I want to join the conference diner (€ 50)'));
+$registration_form->add(new FormCheckboxField('diner', 'I want to join the conference diner (&euro; 50)'));
 $registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren'));
 
 $errors = $registration_form->submitted() ? $registration_form->validate() : array();
+
+if ($registration_form->submitted() && count($errors) == 0) {
+	// First, add the info to a CSV file here on the server
+	$csv = new CSVFile('data/signups.txt');
+	$csv->add($registration_form->data());
+
+	// Then, make sure Elina receives a mail about it
+	$mail_elina = Email::fromTemplate('mails/elina.txt', $registration_form->data());
+	$mail_elina->send('e.sietsema@rug.nl');
+
+	// Also, let the person in question know that their registration has come through
+	// (and tell them what to do next)
+	$mail_registrant = Email::fromTemplate('mails/registrant.txt', $registration_form->data());
+	$mail_registrant->send($registration_form->email->value());
+
+	// Finally, show the payment instructions
+}
 
 ?>
 <!DOCTYPE html>
