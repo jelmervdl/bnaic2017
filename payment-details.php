@@ -51,12 +51,13 @@ $total = $rate['price'] + ($dinner ? $dinner_rate : 0);
 					<p>Thank you for your registration! We have sent you an email as a confirmation.</p>
 				
 					<h3>Payment details</h3>
+					<p>Note: we have also sent you this information in your confirmation email.</p>
+
 					<p>
 						You have registered as a <?= htmlentities($rate['label']) ?>.
 						<?php if ($dinner): ?>You've also opted to join the dinner.<?php endif ?>
 						Would you be so kind to transfer € <?=$total?> to the following account?
 					</p>
-					<p>Note: we have also sent you this information in your confirmation email.</p>
 
 					<dl class="payment-details">
 						<dt>Addressee</dt>
