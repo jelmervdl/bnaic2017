@@ -140,7 +140,7 @@ function html_login_form()
 {
 	return '<form method="post" action="signups.php?view=login">'
 		.'<label for="password-field">Password:</label>'
-		.'<input id="password-field" type="password" name="password">'
+		.'<input id="password-field" type="password" name="password" autofocus>'
 		.'<button type="submit">Login</button>'
 		.'</form>';
 }
