@@ -2,6 +2,34 @@
 
 require_once 'src/format.php';
 
+require_once 'src/class.phpmailer.php';
+require_once 'src/class.smtp.php';
+
+function get_mailer()
+{
+	$auth = require '../smtp.php';
+	
+	$mailer = new PHPMailer(true);
+
+	$mailer->SMTPDebug = 0;
+
+	$mailer->isSMTP();
+	$mailer->Host = 'smtp.gmail.com';
+	$mailer->Port = 587;
+	$mailer->SMTPSecure = 'tls';
+	$mailer->SMTPAuth = true;
+	$mailer->Username = $auth['username'];
+	$mailer->Password = $auth['password'];
+	
+	return $mailer;
+}
+
+function parse_mail_address($address) {
+	return preg_match('/^(.+?)\s+\<(.+?)\>$/', $address, $match)
+		? array('address' => $match[2], 'name' => $match[1])
+		: array('address' => $address, 'name' => '');
+}
+
 class Email
 {
 	static public function fromTemplate($path, array $data)
@@ -17,7 +45,7 @@ class Email
 
 		foreach (explode("\n", $headers) as $header) {
 			list($name, $value) = preg_split('/\s*:\s*/', $header, 2);
-			$message->headers[$name] = format_string($value, $data);
+			$message->headers[] = array($name, format_string($value, $data));
 		}
 
 		$message->body = format_string($body, $data);
@@ -29,23 +57,38 @@ class Email
 
 	public $body = '';
 
-	public function send($address)
+	public function send()
 	{
-		$subject = null;
+		$mailer = get_mailer();
 
-		$headers = array();
-
-		foreach ($this->headers as $name => $value) {
+		foreach ($this->headers as list($name, $value)) {
 			switch ($name) {
-				case 'subject':
-					$subject = $value;
+				case 'Subject':
+					$mailer->Subject = $value;
 					break;
-				default:
-					$headers[] = sprintf('%s: %s', $name, $value);
+				case 'From':
+					$from = parse_mail_address($value);
+					$mailer->setFrom($from['address'], $from['name']);
+					break;
+				case 'To':
+					$to = parse_mail_address($value);
+					$mailer->addAddress($to['address'], $to['name']);
+					break;
+				case 'CC':
+					$cc = parse_mail_address($value);
+					$mailer->addCC($cc['address'], $cc['name']);
+					break;
+				case 'BCC':
+					$bcc = parse_mail_address($value);
+					$mailer->addBCC($bcc['address'], $bcc['name']);
 					break;
 			}
 		}
 
-		return mail($address, $subject, $this->body, implode("\r\n", $headers));
+		$mailer->isHTML(true);
+		$mailer->CharSet = 'UTF-8';
+		$mailer->Body = $this->body;
+
+		return $mailer->send();
 	}
 }

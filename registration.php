@@ -39,19 +39,18 @@ if ($registration_form->submitted() && count($errors) == 0) {
 
 	// Then, make sure Elina receives a mail about it
 	$mail_elina = Email::fromTemplate('mails/elina.txt', $data);
-	// $mail_elina->send('e.sietsema@rug.nl');
-	$mail_elina->send('jelmer@ikhoefgeen.nl');
+	$mail_elina->send();
 
 	// Also, let the person in question know that their registration has come through
 	// (and tell them what to do next)
 	$mail_registrant = Email::fromTemplate('mails/registrant.txt', $data);
-	$mail_registrant->send($registration_form->email->value());
+	$mail_registrant->send();
 
 	// Finally, show the payment instructions
 	$link = sprintf('payment-details.php?rate=%s&dinner=%s',
 		rawurlencode($registration_form->register_as->value()),
 		rawurlencode($registration_form->dinner->value()));
-	header('Location: ' . $link);
+	// header('Location: ' . $link);
 	echo 'Registration succeeded. Redirecting you to <a href="' . htmlentities($link) .'">the payment details page</a>.';
 	exit;
 }
