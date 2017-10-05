@@ -61,7 +61,8 @@ class Email
 	{
 		$mailer = get_mailer();
 
-		foreach ($this->headers as list($name, $value)) {
+		foreach ($this->headers as $header) {
+			list($name, $value) = $header;
 			switch ($name) {
 				case 'Subject':
 					$mailer->Subject = $value;
