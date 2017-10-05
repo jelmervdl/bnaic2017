@@ -50,7 +50,7 @@ if ($registration_form->submitted() && count($errors) == 0) {
 	$link = sprintf('payment-details.php?rate=%s&dinner=%s',
 		rawurlencode($registration_form->register_as->value()),
 		rawurlencode($registration_form->dinner->value()));
-	// header('Location: ' . $link);
+	header('Location: ' . $link);
 	echo 'Registration succeeded. Redirecting you to <a href="' . htmlentities($link) .'">the payment details page</a>.';
 	exit;
 }
