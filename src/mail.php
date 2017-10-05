@@ -7,7 +7,7 @@ require_once 'src/class.smtp.php';
 
 function get_mailer()
 {
-	$auth = require '../smtp.php';
+	$auth = require '../data/smtp.php';
 	
 	$mailer = new PHPMailer(true);
 
