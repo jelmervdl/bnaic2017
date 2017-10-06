@@ -126,8 +126,10 @@ if ($registration_form->submitted() && count($errors) == 0) {
 						<?= $registration_form->affiliation->render($errors) ?>
 						</div>
 
+						<div class="form-grouping">
 						<?= $registration_form->dinner->render($errors) ?>
 						<?= $registration_form->martinitoren->render($errors) ?>
+						</div>
 	
 						<div class="form-controls">
 							<button type="submit">Submit registration</button>
