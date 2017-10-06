@@ -13,17 +13,17 @@ Subject: Registration BNAIC 2017
 
 <h2>Registration info</h2>
 <table>
-	<tr><th style="text-align:left">First name:</th><td>$first_name|htmlentities</td></tr>
-	<tr><th style="text-align:left">Last name:</th><td>$last_name|htmlentities</td></tr>
-	<tr><th style="text-align:left">Email:</th><td>$email|htmlentities</td></tr>
-	<tr><th style="text-align:left">Address line 1:</th><td>$address1|htmlentities</td></tr>
-	<tr><th style="text-align:left">Address line 2:</th><td>$address2|htmlentities</td></tr>
-	<tr><th style="text-align:left">City:</th><td>$city|htmlentities</td></tr>
-	<tr><th style="text-align:left">Country:</th><td>$country|htmlentities</td></tr>
-	<tr><th style="text-align:left">Attending as:</th><td>$register_as|htmlentities</td></tr>
-	<tr><th style="text-align:left">Affiliation:</th><td>$affiliation|htmlentities</td></tr>
-	<tr><th style="text-align:left">Dinner:</th><td>$diner|_if('Attending', 'No')</td></tr>
-	<tr><th style="text-align:left">Trip to Martinitoren:</th><td>$martinitoren|_if('Attending', 'No')</td></tr>
+	<tr><th style="text-align:left">First name</th><td>$first_name|htmlentities</td></tr>
+	<tr><th style="text-align:left">Last name</th><td>$last_name|htmlentities</td></tr>
+	<tr><th style="text-align:left">Email</th><td>$email|htmlentities</td></tr>
+	<tr><th style="text-align:left">Address line 1</th><td>$address1|htmlentities</td></tr>
+	<tr><th style="text-align:left">Address line 2</th><td>$address2|htmlentities</td></tr>
+	<tr><th style="text-align:left">City</th><td>$city|htmlentities</td></tr>
+	<tr><th style="text-align:left">Country</th><td>$country|htmlentities</td></tr>
+	<tr><th style="text-align:left">Attending as</th><td>$register_as|htmlentities</td></tr>
+	<tr><th style="text-align:left">Affiliation</th><td>$affiliation|htmlentities</td></tr>
+	<tr><th style="text-align:left">Dinner</th><td>$diner|_if('Attending', 'No')</td></tr>
+	<tr><th style="text-align:left">Trip to Martinitoren</th><td>$martinitoren|_if('Attending', 'No')</td></tr>
 </table>
 
 <h2>Payment details</h2>
