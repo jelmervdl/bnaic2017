@@ -5,9 +5,11 @@ Subject: Registration BNAIC 2017
 <html>
 <body style="font-family:sans-serif">
 <p>Dear $first_name,</p>
-<p>This mail confirms that you have just registered for attending the BNAIC 2017 conference on 8 and 9 November in Groningen. Below follow a copy of your information and payment details.</p>
+<p>This mail confirms that you have just registered for attending the BNAIC 2017 conference on November 8 and 9 in Groningen. Below follows a copy of your registration information.</p>
 
-<p>Don't forget to check our <a href="http://bnaic2017.ai.rug.nl/practicalities.html">practicalities page</a>!</p>
+<p>Please pay as soon as possible (payment details below). Don't forget to include the project code 190 193 412 and BNAIC 2017 when making the payment.</p>
+
+<p>Practical information about your conference visit is available at our <a href="http://bnaic2017.ai.rug.nl/practicalities.html">practicalities page</a>.</p>
 
 <h2>Registration info</h2>
 <table>
@@ -60,7 +62,7 @@ Subject: Registration BNAIC 2017
 
 <p>Please don't forget to mention both the project code <em>190 193 412</em> and <em>BNAIC 2017</em> in your description.</p>
 
-<p>We'll see you on 8 November in Het Kasteel, Melkweg 1, 9718 EP Groningen!</p>
+<p>We look forward to seeing you on November 8 and 9 in Het Kasteel, Melkweg 1, 9718 EP Groningen!</p>
 
 </body>
 </html>
