@@ -119,7 +119,6 @@ if ($registration_form->submitted() && count($errors) == 0) {
 							<?= $registration_form->country->render($errors) ?>
 						</div>
 
-						<h3>Relation</h3>
 						<div class="form-grouping">
 						<?= $registration_form->register_as->render($errors) ?>
 						</div>
