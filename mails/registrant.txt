@@ -62,7 +62,11 @@ Subject: Registration BNAIC 2017
 
 <p>Please don't forget to mention both the project code <em>190 193 412</em> and <em>BNAIC 2017</em> in your description.</p>
 
-<p>We look forward to seeing you on November 8 and 9 in Het Kasteel, Melkweg 1, 9718 EP Groningen!</p>
+<p>We look forward to seeing you on November 8 and 9 in Het Kasteel, Melkweg 1, 9718 EP Groningen.</p>
+
+<p>Best wishes,</p>
+
+<p>Bart Verheij<br />Marco Wiering<br />Conference chairs</p>
 
 </body>
 </html>
