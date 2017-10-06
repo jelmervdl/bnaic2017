@@ -104,7 +104,7 @@ if ($registration_form->submitted() && count($errors) == 0) {
 				</section>
 				<section>
 					<form method="post" action="registration.php">
-						<h3>Personal</h3>
+						<h3>Registration form</h3>
 						<div class="form-grouping">
 							<?= $registration_form->first_name->render($errors) ?>
 							<?= $registration_form->last_name->render($errors) ?>
@@ -126,7 +126,6 @@ if ($registration_form->submitted() && count($errors) == 0) {
 						<?= $registration_form->affiliation->render($errors) ?>
 						</div>
 
-						<h3>Additional</h3>
 						<?= $registration_form->dinner->render($errors) ?>
 						<?= $registration_form->martinitoren->render($errors) ?>
 	
