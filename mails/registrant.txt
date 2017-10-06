@@ -28,7 +28,7 @@ Subject: Registration BNAIC 2017
 
 <h2>Payment details</h2>
 <dl>
-	<dt style="font-weight: bold">Addressee:</dt>
+	<dt style="font-weight: bold">Addressee</dt>
 	<dd>
 		Rijksuniversiteit Groningen<br>
 		Fac. Wiskunde en Natuurwetenschappen<br>
@@ -36,7 +36,7 @@ Subject: Registration BNAIC 2017
 		9747 AG  Groningen 
 	</dd>
 
-	<dt style="font-weight: bold">Bank:</dt>
+	<dt style="font-weight: bold">Bank</dt>
 	<dd>
 		ABN-AMRO<br>
 		Zuiderzeelaan 53<br>
@@ -44,19 +44,19 @@ Subject: Registration BNAIC 2017
 		8000 AR Zwolle
 	</dd>
 		
-	<dt style="font-weight: bold">IBAN:</dt>
+	<dt style="font-weight: bold">IBAN</dt>
 	<dd>NL45ABNA0474567206</dd>
 
-	<dt style="font-weight: bold">BIC:</dt>
+	<dt style="font-weight: bold">BIC</dt>
 	<dd>ABN ANL 2A</dd>
 	
-	<dt style="font-weight: bold">Description:</dt>
+	<dt style="font-weight: bold">Description</dt>
 	<dd>
 		Project code 190 193 412<br>
 		BNAIC 2017
 	</dd>
 
-	<dt style="font-weight: bold">Amount:</dt>
+	<dt style="font-weight: bold">Amount</dt>
 	<dd>€ $total</dd>
 </dl>
 
