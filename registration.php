@@ -23,8 +23,8 @@ $registration_form->add(new FormTextField('city', 'Town/City/Region', array('req
 $registration_form->add(new FormTextField('country', 'Country', array('required' => true)));
 $registration_form->add(new FormRadioField('register_as', 'Registering as', $options, array('required' => true)));
 $registration_form->add(new FormTextField('affiliation', 'Affiliation'));
-$registration_form->add(new FormCheckboxField('dinner', sprintf('I want to join the conference dinner (&euro; %d)', $dinner_rate)));
-$registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren'));
+$registration_form->add(new FormCheckboxField('dinner', sprintf('I want to join the conference dinner (&euro; %d; Wednesday November 8)', $dinner_rate)));
+$registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren (Wednesday November 8)'));
 
 $errors = $registration_form->submitted() ? $registration_form->validate() : array();
 
@@ -90,7 +90,17 @@ if ($registration_form->submitted() && count($errors) == 0) {
 			<div class="container">
 				<section>
 					<h1>Registration</h1>
-					<p>Something about the various costs for the various types of visitors, e.g. cheap for students, expensive for people who's supervisor/boss is paying anyway.</p> 
+					<p>Please complete the form below to register for the conference. Note that early registration rates apply until Friday October 27 (the day after the final paper submission deadline).</p> 
+					
+					<h3>Rates</h3>
+					<table>
+					<tr><td>Bachelor or Master student:</td>
+						<td>early: &euro; 50</td><td>late: &euro; 50</td></tr>
+					<tr><td>PhD student:</td>
+						<td>early: &euro; 110</td><td>late: &euro; 130</td></tr>
+					<tr><td>Regular:</td>
+						<td>early: &euro; 160</td><td>late: &euro; 180</td></tr>
+					</table>
 				</section>
 				<section>
 					<form method="post" action="registration.php">

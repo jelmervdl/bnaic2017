@@ -18,7 +18,7 @@ $total = $rate['price'] + ($dinner ? $dinner_rate : 0);
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Committees &middot; BNAIC 2017</title>
+		<title>Thank you &middot; BNAIC 2017</title>
 		<meta name="description" content="The 29th Benelux Conference on Artificial Intelligence">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="assets/css/layout.css">
@@ -48,15 +48,17 @@ $total = $rate['price'] + ($dinner ? $dinner_rate : 0);
 			<div class="container">
 				<section>
 					<h2>Thank you!</h2>
-					<p>Thank you for your registration! We have sent you an email as a confirmation.</p>
+					<p>Thank you for your registration. We have sent you an email as a confirmation.</p>
 				
-					<h3>Payment details</h3>
+					<h3>Payment</h3>
+					<p>Please pay as soon as possible. Don't forget to mention both the project code 190 193 412 and BNAIC 2017 when making your payment.</p>
+
 					<p>Note: we have also sent you this information in your confirmation email.</p>
 
 					<p>
 						You have registered as a <?= htmlentities($rate['label']) ?>.
 						<?php if ($dinner): ?>You've also opted to join the dinner.<?php endif ?>
-						Would you be so kind to transfer € <?=$total?> to the following account?
+						Would you be so kind to transfer € <?=$total?> to the following account as soon as possible?
 					</p>
 
 					<dl class="payment-details">
