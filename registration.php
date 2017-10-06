@@ -94,12 +94,12 @@ if ($registration_form->submitted() && count($errors) == 0) {
 					
 					<h3>Rates</h3>
 					<table>
-					<tr><td>Bachelor or Master student:&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>early: &euro; 50</td><td>late: &euro; 50</td></tr>
-					<tr><td>PhD student:</td>
-						<td>early: &euro; 110</td><td>late: &euro; 130</td></tr>
-					<tr><td>Regular:</td>
-						<td>early: &euro; 160&nbsp;&nbsp;&nbsp;&nbsp;</td><td>late: &euro; 180</td></tr>
+					<tr><td>Bachelor or Master student&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>early &euro; 50</td><td>late &euro; 50</td></tr>
+					<tr><td>PhD student</td>
+						<td>early &euro; 110</td><td>late &euro; 130</td></tr>
+					<tr><td>Regular</td>
+						<td>early &euro; 160&nbsp;&nbsp;&nbsp;&nbsp;</td><td>late &euro; 180</td></tr>
 					</table>
 				</section>
 				<section>
