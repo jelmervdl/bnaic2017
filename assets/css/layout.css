@@ -172,8 +172,8 @@ html, body {
 	}
 
 	.website-navigation.fixed {
-		background: white url(../img/bnaic-logo-black-simple.svg) center 0 no-repeat;
-		background-size: auto 2em;
+		background: white url(../img/bnaic-logo-black-simple.svg) center 0.25em no-repeat;
+		background-size: auto 1.5em;
 	}
 
 	.website-navigation a,
