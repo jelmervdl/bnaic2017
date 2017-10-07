@@ -79,10 +79,11 @@ if ($registration_form->submitted() && count($errors) == 0) {
 		<nav class="website-navigation fixed" tabindex="-1">
 			<div class="container">
 				<a href="index.html#home">Home</a>
+				<a href="program.html">Program</a>
+				<a href="registration.php" class="active">Registration</a>
 				<a href="cfp.html">Call for papers</a>
 				<a href="committees.html">Committees</a>
 				<a href="practicalities.html">Practicalities</a>
-				<a href="registration.php" class="registration active">Registration</a>
 			</div>
 		</nav>
 
