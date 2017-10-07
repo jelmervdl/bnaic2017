@@ -11,7 +11,7 @@ require_once 'src/rates.php'; // includes $rates and $late
 $options = array();
 
 foreach ($rates as $name => $rate)
-	$options[$name] = sprintf('%s (€ %d)', $rate['label'], $rate['price']);
+	$options[$name] = sprintf('%s (&euro;&nbsp;%d)', $rate['label'], $rate['price']);
 
 $registration_form = new Form();
 $registration_form->add(new FormTextField('first_name', 'First name', array('required' => true)));
@@ -23,7 +23,7 @@ $registration_form->add(new FormTextField('city', 'Town/City/Region', array('req
 $registration_form->add(new FormTextField('country', 'Country', array('required' => true)));
 $registration_form->add(new FormRadioField('register_as', 'Registering as', $options, array('required' => true)));
 $registration_form->add(new FormTextField('affiliation', 'Affiliation'));
-$registration_form->add(new FormCheckboxField('dinner', sprintf('I want to join the conference dinner (&euro; %d; Wednesday November 8)', $dinner_rate)));
+$registration_form->add(new FormCheckboxField('dinner', sprintf('I want to join the conference dinner (&euro;&nbsp;%d; Wednesday November 8)', $dinner_rate)));
 $registration_form->add(new FormCheckboxField('martinitoren', 'I want to join the trip to the Martinitoren (Wednesday November 8)'));
 
 $errors = $registration_form->submitted() ? $registration_form->validate() : array();
@@ -96,11 +96,11 @@ if ($registration_form->submitted() && count($errors) == 0) {
 					<h3>Rates</h3>
 					<table>
 					<tr><td>Bachelor or Master student&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>early &euro; 50</td><td>late &euro; 50</td></tr>
+						<td>early &euro;&nbsp;50</td><td>late &euro;&nbsp;50</td></tr>
 					<tr><td>PhD student</td>
-						<td>early &euro; 110</td><td>late &euro; 130</td></tr>
+						<td>early &euro;&nbsp;110</td><td>late &euro;&nbsp;130</td></tr>
 					<tr><td>Regular</td>
-						<td>early &euro; 160&nbsp;&nbsp;&nbsp;&nbsp;</td><td>late &euro; 180</td></tr>
+						<td>early &euro;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;</td><td>late &euro;&nbsp;180</td></tr>
 					</table>
 				</section>
 				<section>

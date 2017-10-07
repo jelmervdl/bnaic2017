@@ -93,7 +93,7 @@ abstract class FormField
 	{
 		$label = sprintf('<label for="%s">%s%s</label>',
 			$this->attributes['id'],
-			htmlspecialchars($this->label),
+			$this->label,
 			strlen($this->label) > 0 ? ':' : '');
 
 		$hint = !empty($error)
@@ -159,7 +159,7 @@ class FormSelectField extends FormField
 			$html_options[] = sprintf('<option%s value="%s">%s</option>',
 				$this->value() == $option_value ? ' selected' : '',
 				htmlspecialchars($option_value, ENT_QUOTES),
-				htmlspecialchars($option_label));
+				$option_label);
 
 		$field = sprintf('<select %s>%s</select>', $this->render_attributes($this->attributes), implode("\n\t", $html_options));
 
@@ -185,7 +185,7 @@ class FormRadioField extends FormField
 				htmlspecialchars($this->name, ENT_QUOTES),
 				htmlspecialchars($option_value, ENT_QUOTES),
 				$this->value() == $option_value ? ' checked' : '',
-				htmlspecialchars($option_label));
+				$option_label);
 
 		$field = sprintf('<ul %s>%s</ul>', $this->render_attributes($this->attributes), implode("\n\t", $html_options));
 
@@ -195,7 +195,7 @@ class FormRadioField extends FormField
 	protected function render_group($field, &$error = null)
 	{
 		$label = sprintf('<label>%s%s</label>',
-			htmlspecialchars($this->label),
+			$this->label,
 			strlen($this->label) > 0 ? ':' : '');
 
 		$hint = !empty($error)
