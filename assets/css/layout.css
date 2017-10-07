@@ -17,7 +17,7 @@ html, body {
 /* Header */
 
 .website-header {
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 	background:  url(../img/bnaic-1.jpg) center no-repeat;
 	background-size: cover;
@@ -61,7 +61,7 @@ html, body {
 
 .website-header.small {
 	margin-top: 2rem;
-	height: 160px;
+	min-height: 160px;
 }
 
 .website-header.small .text {
