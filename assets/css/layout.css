@@ -277,6 +277,12 @@ footer a {
 	color: inherit;
 }
 
+@media (max-width: 700px) {
+	body > footer {
+		text-align: center;
+	}
+}
+
 /* Registration form */
 .form-grouping + .form-grouping {
 	margin-top: 2em;
