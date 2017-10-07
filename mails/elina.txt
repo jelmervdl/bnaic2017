@@ -1,5 +1,5 @@
-From: BNAIC Website <noreply@ai.rug.nl>
-To: Elina <jelmer@ikhoefgeen.nl>
+From: BNAIC 2017 <noreply@ai.rug.nl>
+To: Elina Sietsema <e.sietsema@rug.nl>
 Subject: Aanmelding BNAIC 2017: $first_name $last_name
 
 <html>
