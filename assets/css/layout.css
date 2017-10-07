@@ -116,7 +116,7 @@ html, body {
 	justify-content: flex-start;
 	align-items: stretch;
 
-	transition: background ease-in-out 150ms;
+	transition: background-color ease-in-out 150ms;
 }
 
 .website-navigation a,
