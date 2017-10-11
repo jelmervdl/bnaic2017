@@ -22,7 +22,7 @@ Subject: Registration BNAIC 2017
 	<tr><th style="text-align:left">Country</th><td>$country|htmlentities</td></tr>
 	<tr><th style="text-align:left">Attending as</th><td>$register_as|htmlentities</td></tr>
 	<tr><th style="text-align:left">Affiliation</th><td>$affiliation|htmlentities</td></tr>
-	<tr><th style="text-align:left">Dinner</th><td>$diner|_if('Attending', 'No')</td></tr>
+	<tr><th style="text-align:left">Dinner</th><td>$dinner|_if('Attending', 'No')</td></tr>
 	<tr><th style="text-align:left">Trip to Martinitoren</th><td>$martinitoren|_if('Attending', 'No')</td></tr>
 </table>
 
