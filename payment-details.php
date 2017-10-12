@@ -59,7 +59,7 @@ $total = $rate['price'] + ($dinner ? $dinner_rate : 0);
 					<p>
 						You have registered as a <?= htmlentities($rate['label']) ?>.
 						<?php if ($dinner): ?>You've also opted to join the dinner.<?php endif ?>
-						Would you be so kind to transfer € <?=$total?> to the following account as soon as possible?
+						Would you be so kind to transfer € <?=$total?><?php if ($dinner): ?> (&euro;&nbsp;<?=$rate['price']?> <?=$rate['label']?> rate, &euro;&nbsp;<?=$dinner_rate?> dinner)<?php endif ?> to the following account as soon as possible?
 					</p>
 
 					<dl class="payment-details">
@@ -92,7 +92,7 @@ $total = $rate['price'] + ($dinner ? $dinner_rate : 0);
 						</dd>
 
 						<dt>Amount</dt>
-						<dd>€ <?=$total?></dd>
+						<dd>&euro;&nbsp;<?=$total?></dd>
 					</dl>
 
 					<p>Please don't forget to mention both the project code <em>190 193 412</em> and <em>BNAIC 2017</em> in your description.</p>
