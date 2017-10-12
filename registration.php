@@ -37,14 +37,22 @@ if ($registration_form->submitted() && count($errors) == 0) {
 	$csv = new CSVFile('../data/signups.txt');
 	$csv->add($data);
 
-	// Then, make sure Elina receives a mail about it
-	$mail_elina = Email::fromTemplate('mails/elina.txt', $data);
-	$mail_elina->send();
+	try {
+		// Then, make sure Elina receives a mail about it
+		$mail_elina = Email::fromTemplate('mails/elina.txt', $data);
+		$mail_elina->send();
+	} catch (Exception $e) {
+		// Oh :(
+	}
 
-	// Also, let the person in question know that their registration has come through
-	// (and tell them what to do next)
-	$mail_registrant = Email::fromTemplate('mails/registrant.txt', $data);
-	$mail_registrant->send();
+	try {
+		// Also, let the person in question know that their registration has come through
+		// (and tell them what to do next)
+		$mail_registrant = Email::fromTemplate('mails/registrant.txt', $data);
+		$mail_registrant->send();
+	} catch (Exception $e) {
+		// Well, sometimes live isn't fair
+	}
 
 	// Finally, show the payment instructions
 	$link = sprintf('payment-details.php?rate=%s&dinner=%s',
