@@ -94,13 +94,31 @@ if ($registration_form->submitted() && count($errors) == 0) {
 					<p>Please complete the form below to register for the conference. Note that early registration rates apply until Friday October 27 (the day after the final paper submission deadline).</p> 
 					
 					<h3>Rates</h3>
-					<table>
-					<tr><td>Bachelor or Master student&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>early &euro;&nbsp;50</td><td>late &euro;&nbsp;50</td></tr>
-					<tr><td>PhD student</td>
-						<td>early &euro;&nbsp;110</td><td>late &euro;&nbsp;130</td></tr>
-					<tr><td>Regular</td>
-						<td>early &euro;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;</td><td>late &euro;&nbsp;180</td></tr>
+					<table class="rates">
+						<thead>
+							<tr>
+								<th>Registering as</th>
+								<th>Early</th>
+								<th>Regular</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Bachelor or Master <span class="hide-on-overflow">student</span></th>
+								<td class="early">&euro;&nbsp;50</td>
+								<td class="regular">&euro;&nbsp;50</td>
+							</tr>
+							<tr>
+								<th>PhD student</th>
+								<td class="early">&euro;&nbsp;110</td>
+								<td class="regular">&euro;&nbsp;130</td>
+							</tr>
+							<tr>
+								<th>Regular</th>
+								<td class="early">&euro;&nbsp;160</td>
+								<td class="regular">&euro;&nbsp;180</td>
+							</tr>
+						</tbody>
 					</table>
 				</section>
 				<section>

@@ -507,3 +507,46 @@ footer a {
 	min-width: 35ch;
 	float: left;
 }
+
+.rates th,
+.rates td {
+	padding-right: 1em;
+}
+
+.rates th {
+	text-align: left;
+}
+
+.rates thead th {
+	vertical-align: bottom;
+}
+
+.rates thead th:nth-of-type(1) {
+	visibility: hidden;
+}
+
+.rates tbody th {
+	font-weight: normal;
+}
+
+.rates .hide-on-overflow {
+	display: none;
+}
+
+@media (min-width: 700px) {
+	.rates .hide-on-overflow {
+		display: initial;
+	}
+
+	.rates thead {
+		display: none;
+	}
+
+	.rates tbody .early::before {
+		content: 'early ';
+	}
+
+	.rates tbody .regular::before {
+		content: 'regular ';
+	}
+}
