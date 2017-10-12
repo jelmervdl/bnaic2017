@@ -78,27 +78,12 @@ html, body {
 }
 
 @media (max-width: 700px) {
+	.website-header {
+		min-height: initial;
+	}
+
 	.website-header.small {
-		margin-top: 2.0rem;
-		font-size: 0.5em;
-		line-height: 1em;
-	}
-
-	.website-header.small .container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.website-header.small h1 {
-		margin-top: 0;
-		height: 60px;
-		width: auto;
-		float:none;
-	}
-
-	.website-header.small .text {
-		text-align: center;
+		display: none;
 	}
 }
 
@@ -162,37 +147,45 @@ html, body {
 }
 
 @media (max-width: 700px) {
-	.website-navigation {
+	.website-navigation,
+	.website-navigation.fixed {
 		position: fixed;
 		top: 0;
 		bottom: auto;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		flex-direction: column;
-		background: white;
+		color: white;
 	}
 
 	.website-navigation.fixed {
-		background: white url(../img/bnaic-logo-black-simple.svg) center 0.25em no-repeat;
+		background: rgba(15, 127, 18, 1.0) url(../img/bnaic-logo-white-simple.svg) center 0.25em no-repeat;
 		background-size: auto 1.5em;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	}
 
 	.website-navigation a,
 	.website-navigation a:link,
-	.website-navigation a:visited {
-		padding: 0 1em;
+	.website-navigation a:visited,
+	.website-navigation.fixed a,
+	.website-navigation.fixed a:link,
+	.website-navigation.fixed a:visited {
+		padding: 0 0.5em;
 		margin: 0;
-		color: black;
+		color: white;
 		border: 0;
 	}
 
 	.website-navigation a:hover,
-	.website-navigation a.active:hover {
-		color: white;
-		background: rgba(15, 127, 18, 1.0);
+	.website-navigation a.active:hover,
+	.website-navigation.fixed a:hover,
+	.website-navigation.fixed a.active:hover {
+		color: rgba(15, 127, 18, 1.0);
+		background: white;
 	}
 
-	.website-navigation a.active {
-		color: rgba(15, 127, 18, 1.0);
+	.website-navigation a.active,
+	.website-navigation.fixed a.active {
+		color: white;
+		background: rgba(0, 0, 0, 0.1);
 	}
 
 	.website-navigation::before {
@@ -203,11 +196,17 @@ html, body {
 
 	.website-navigation .container {
 		max-height: 0;
+		width: 100%;
 		overflow: hidden;
 		transition: max-height ease-in-out 150ms;
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
+	}
+
+	.website-navigation:focus {
+		outline: none;
+		background-color: rgba(15, 127, 18, 1.0);
 	}
 
 	.website-navigation:focus .container {
