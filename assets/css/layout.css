@@ -92,6 +92,10 @@ html, body {
 	.website-header.small {
 		display: none;
 	}
+
+	.website-header.small + .website-navigation + .website-content {
+		margin-top: 1em;
+	}
 }
 
 .website-navigation {
