@@ -565,3 +565,8 @@ footer a {
 		content: 'regular ';
 	}
 }
+
+/* Committee page */
+.committee .affinity {
+	display: inline-block;
+}
