@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="552px" height="108px" viewBox="0 0 552 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ssn">
+            <text id="SNN" font-family="LucidaGrande, Lucida Grande" font-size="92.183091" font-weight="normal" letter-spacing="0.04" fill="#1A1919">
+                <tspan x="83" y="89">SNN</tspan>
+            </text>
+            <text id="ADAPTIVE-" font-family="LucidaGrande, Lucida Grande" font-size="34.718307" font-weight="normal" letter-spacing="0.1" fill="#BD242A">
+                <tspan x="314" y="47">A</tspan>
+                <tspan x="338.053598" y="47" letter-spacing="-0.386056298">D</tspan>
+                <tspan x="363.672367" y="47">APTIVE </tspan>
+            </text>
+            <text id="INTELLIGENCE" font-family="LucidaGrande, Lucida Grande" font-size="34.718307" font-weight="normal" letter-spacing="0.1" fill="#BD242A">
+                <tspan x="314" y="89">INTELLIGENCE</tspan>
+            </text>
+            <path d="M291,23 L291,88" id="Stroke-6" stroke="#9E9F9E" stroke-width="2" stroke-linecap="round"></path>
+            <g id="Group" transform="translate(0.000000, 24.000000)" fill="#BB242A">
+                <path d="M0,13.8034394 C0,6.52993939 5.989507,0.632272727 13.37373,0.632272727 C20.75915,0.632272727 26.75345,6.52993939 26.75345,13.8034394 C26.75345,21.0769394 20.75915,26.9792348 13.37373,26.9792348 C5.989507,26.9792348 0,21.0769394 0,13.8034394" id="Fill-8"></path>
+                <path d="M11.22479,51.3994394 C11.22479,44.1259394 17.2131,38.2271894 24.59972,38.2271894 C31.98754,38.2271894 37.97585,44.1259394 37.97585,51.3994394 C37.97585,58.675303 31.98754,64.5728712 24.59972,64.5728712 C17.2131,64.5728712 11.22479,58.675303 11.22479,51.3994394" id="Fill-10"></path>
+                <path d="M44.21197,36.2062803 C44.21197,28.9327803 50.19908,23.0352121 57.5893,23.0352121 C64.97592,23.0352121 70.96183,28.9327803 70.96183,36.2062803 C70.96183,43.4821439 64.97592,49.3797121 57.5893,49.3797121 C50.19908,49.3797121 44.21197,43.4821439 44.21197,36.2062803" id="Fill-11"></path>
+            </g>
+        </g>
+    </g>
+</svg>

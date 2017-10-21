@@ -572,3 +572,52 @@ footer a {
 .committee .affinity {
 	display: inline-block;
 }
+
+/* Sponsors */
+
+.sponsors {
+	padding: 0 20px;
+}
+
+.sponsors .container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sponsors h2 {
+	display: block;
+	width: 100%;
+}
+
+.sponsors .sponsor {
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+}
+
+.sponsors .main.sponsor {
+	width: 50%;
+}
+
+.sponsors .regular.sponsor {
+	width: 25%;
+}
+
+.sponsors .small.sponsor {
+	width: 17.5%;
+}
+
+.sponsors .sponsor img {
+	width: 100%;
+}
+
+@media (min-width: 700px) {
+	.sponsors .sponsor {
+		padding: 20px;
+	}
+}
+
