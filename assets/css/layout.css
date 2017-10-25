@@ -271,6 +271,19 @@ html, body {
 	vertical-align: top;
 }
 
+.website-content h2 {
+	font-size: 1.25em;
+}
+
+.website-content h3 {
+	font-size: 1.0em;
+	/*margin: 0;*/
+}
+
+.website-content h3 + p {
+	margin-top: 0;
+}
+
 header h1 {
 	background: url(../img/bnaic-logo.svg) center no-repeat;
 	overflow: hidden;
@@ -619,5 +632,40 @@ footer a {
 	.sponsors .sponsor {
 		padding: 20px;
 	}
+}
+
+/* Talks */
+
+.talks {
+	list-style: none;
+	padding: 0;
+}
+
+.talk {
+	position: relative;
+	margin-bottom: 3em;
+	padding-right: calc(110px + 1em);
+}
+
+.talk .speaker {
+	margin-bottom: 1em;
+}
+
+.talk .speaker .photo {
+	position: absolute;
+	right: 0;
+	width: 110px;
+}
+
+.talk .speaker .name + .affinity::before {
+	content: ', ';
+}
+
+.talk .speaker .name + .affinity {
+	margin-left: -0.5ch;
+}
+
+.talk p {
+	/*margin: 0;*/
 }
 
