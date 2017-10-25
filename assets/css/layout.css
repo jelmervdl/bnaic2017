@@ -644,7 +644,6 @@ footer a {
 .talk {
 	position: relative;
 	margin-bottom: 3em;
-	padding-right: calc(110px + 1em);
 }
 
 .talk .speaker {
@@ -652,20 +651,25 @@ footer a {
 }
 
 .talk .speaker .photo {
-	position: absolute;
-	right: 0;
-	width: 110px;
+	height: 150px;
+	vertical-align: middle;
+	margin: 0 auto;
 }
 
-.talk .speaker .name + .affinity::before {
-	content: ', ';
-}
+@media (min-width: 700px) {
+	.talk {
+		padding-left: calc(220px + 1em);
+	}
 
-.talk .speaker .name + .affinity {
-	margin-left: -0.5ch;
-}
+	.talk .speaker {
+		position: absolute;
+		top: 2.5em;
+		left: 0;
+		max-width: 220px;
+	}
 
-.talk p {
-	/*margin: 0;*/
+	.talk .speaker > * {
+		display: block;
+		text-align: center;
+	}
 }
-
