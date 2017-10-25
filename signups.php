@@ -84,6 +84,7 @@ function view_logout()
 
 function html_page($body)
 {
+	header('Content-type: text/html; charset=utf-8');
 	return <<<HTML
 <html>
 	<head>
@@ -152,7 +153,7 @@ function html_signup_table()
 	$ths = array('<th></th>');
 
 	foreach ($header as $cell)
-		$ths[] = sprintf('<th>%s</th>', htmlentities($cell));
+		$ths[] = sprintf('<th>%s</th>', htmlentities($cell, ENT_COMPAT, 'UTF-8'));
 
 	$trs = array('<tr>' . implode('', $ths) . '</tr>');
 
@@ -160,7 +161,7 @@ function html_signup_table()
 		$tds = array(sprintf('<th><input type="checkbox" name="row[]" value="%s"></th>', row_id($i, $row)));
 
 		foreach ($row as $cell)
-			$tds[] = sprintf('<td>%s</td>', htmlentities($cell));
+			$tds[] = sprintf('<td>%s</td>', htmlentities($cell, ENT_COMPAT, 'UTF-8'));
 
 		$trs[] = sprintf('<tr>%s</tr>', implode('', $tds));
 	}
