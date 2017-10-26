@@ -764,13 +764,14 @@ footer a {
 @media (min-width: 700px) {
 	.talk {
 		padding-left: calc(220px + 1em);
+		min-height: calc(150px + 2.5em + 6em);
 	}
 
 	.talk .speaker {
 		position: absolute;
 		top: 2.5em;
 		left: 0;
-		max-width: 220px;
+		width: 220px;
 	}
 
 	.talk .speaker > * {
