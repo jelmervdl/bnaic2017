@@ -240,9 +240,7 @@ html, body {
 		position: static;
 		display: block;
 		box-shadow: none;
-		margin: 0 -0.75em;
 		text-indent: 0.75em
-		
 	}
 
 	.website-navigation li ul li a {
@@ -252,10 +250,15 @@ html, body {
 
 	.website-navigation li,
 	.website-navigation.fixed li {
-		padding: 0 0.75em;
+		padding: 0;
 		margin: 0;
 		color: white;
 		border: 0;
+	}
+
+	.website-navigation a {
+		display: block;
+		padding: 0 0.75em;
 	}
 
 	.website-navigation li:hover,
@@ -276,22 +279,22 @@ html, body {
 		background: rgba(0, 0, 0, 0.1);
 	}
 
-	.website-navigation::before,
-	.website-navigation:focus + .website-content::after {
+	.website-navigation::before {
 		content: '\2630';
 		font-size: 1.5em;
 		padding-left: 0.5em;
 		display: block;
+		cursor: pointer;
 	}
 
+	/* When the menu is open, overlay a 'dismissal' button on top of it */
 	.website-navigation:focus + .website-content::after {
+		content: '';
 		position: fixed;
 		top: 0;
 		left: 0;
-		font-size: 1.65em;
-		line-height: 1.65em;
-		padding-left: 0.475em;
-		color: white;
+		right: 0;
+		height: 2.475em;
 		z-index: 30;
 	}
 
