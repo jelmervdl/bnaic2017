@@ -111,6 +111,12 @@ html, body {
 	transition: background-color ease-in-out 150ms, box-shadow ease-in-out 150ms;
 }
 
+.website-navigation a:link,
+.website-navigation a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
 .website-navigation ul {
 	padding: 0;
 	list-style: none;
@@ -141,13 +147,14 @@ html, body {
 	display: block;
 	white-space: nowrap;
 	margin: 0;
+	padding: 0;
 	border: none;
 	color: black;
 }
 
 .website-navigation li ul li a {
 	display: block;
-	/*padding: 0;*/
+	padding: 0 0.5em;
 }
 
 .website-navigation li:hover > ul > li:hover {
@@ -163,11 +170,8 @@ html, body {
 	border-bottom: 2px solid white;
 }
 
-.website-navigation a,
-.website-navigation a:link,
-.website-navigation a:visited {
-	text-decoration: none;
-	color: inherit;
+.website-navigation a {
+	display: inline-block;
 }
 
 .website-navigation li:hover {
@@ -187,6 +191,11 @@ html, body {
 .website-navigation.fixed li {
 	color: inherit;
 	border: 0;
+	padding: 0;
+}
+
+.website-navigation.fixed li a {
+	padding: 0 0.5em;
 }
 
 .website-navigation.fixed li:hover,
