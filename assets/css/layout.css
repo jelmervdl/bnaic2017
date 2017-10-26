@@ -111,6 +111,10 @@ html, body {
 	transition: background-color ease-in-out 150ms, box-shadow ease-in-out 150ms;
 }
 
+.website-navigation:focus {
+	outline: none;
+}
+
 .website-navigation a:link,
 .website-navigation a:visited {
 	text-decoration: none;
@@ -318,7 +322,6 @@ html, body {
 	}
 
 	.website-navigation:focus {
-		outline: none;
 		background-color: rgba(15, 127, 18, 1.0);
 	}
 
