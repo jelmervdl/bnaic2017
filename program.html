@@ -19,21 +19,29 @@
 		</header>
 
 		<nav class="website-navigation fixed" tabindex="-1">
-			<div class="container">
-				<a href="index.html#home">Home</a>
-				<a href="program.html" class="active">Program</a>
-				<a href="registration.php">Registration</a>
-				<a href="cfp.html">Call for papers</a>
-				<a href="committees.html">Committees</a>
-				<a href="practicalities.html">Practicalities</a>
-			</div>
+			<ul class="container">
+				<li><a href="index.html#home">Home</a></li>
+				<li class="active">
+					<a href="program.html">Program</a>
+					<ul>
+						<li><a href="program.html#keynote-speakers">Keynote speakers</a></li>
+						<li><a href="program.html#fact-talks">FACt talks</a></li>
+						<li><a href="program.html#accepted-papers">Accepted papers and demonstrations</a></li>
+						<li><a href="program.html#nvidia-deep-learning-workshop">NVIDIA Deep Learning Workshop</a></li>
+					</ul>
+				</li>
+				<li><a href="registration.php">Registration</a></li>
+				<li><a href="cfp.html">Call for papers</a></li>
+				<li><a href="committees.html">Committees</a></li>
+				<li><a href="practicalities.html">Practicalities</a></li>
+			</ul>
 		</nav>
 
 		<div class="website-content">
 			<div class="program container">
 				<h1>Program</h1>
 
-				<section class="talks">
+				<section class="talks" id="keynote-speakers">
 					<h2>Keynote speakers</h2>
 					
 					<section class="talk">
@@ -84,7 +92,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</section>
 				</section>
 				
-				<section class="talks">
+				<section class="talks" id="fact-talks">
 					<h2>FACt talks – FACulty focusing on the FACts of Artificial Intelligence</h2>
 					<ul class="talks">
 						<li><a href="https://staff.science.uva.nl/b.bredeweg/" target="_blank">Bert Bredeweg</a>, Universiteit van Amsterdam</li>
@@ -95,9 +103,9 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</ul>
 				</section>
 
-				<h2>Accepted papers and demonstrations</h3>
+				<h2 id="accepted-papers">Accepted papers and demonstrations</h3>
 
-				<section class="accepted-papers">
+				<section class="accepted-papers" id="type-a">
 					<h3>Type A: regular papers</h3>
 
 					<h4>Oral presentation</h4>
@@ -210,7 +218,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</ul>
 				</section>
 				
-				<section class="accepted-papers">
+				<section class="accepted-papers" id="type-b">
 					<h3>Type B: compressed contributions</h3>
 
 					<h4>Oral presentation</h4>
@@ -300,7 +308,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</ul>
 				</section>
 
-				<section class="accepted-papers">
+				<section class="accepted-papers" id="type-c">
 					<h3>Type C: demonstrations</h3>
 					
 					<ul>
@@ -331,7 +339,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</ul>
 				</section>
 				
-				<section class="accepted-papers">
+				<section class="accepted-papers" id="type-d">
 					<h3>Type D: thesis abstracts</h3>
 
 					<h4>Oral presentation</h4>
