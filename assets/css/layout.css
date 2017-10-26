@@ -381,6 +381,17 @@ html, body {
 	margin: 0;
 }
 
+.website-content > .container > section {
+	margin-bottom: 3em;
+	padding-bottom: 2em;
+	box-shadow: 0 5px 10px -12px #000; /* subtiel lijntje */
+}
+
+.website-content > .container > section:last-child {
+	box-shadow: none;
+	margin-bottom: 0;
+}
+
 header h1 {
 	background: url(../img/bnaic-logo.svg) center no-repeat;
 	overflow: hidden;
@@ -686,10 +697,6 @@ footer a {
 /* Sponsors */
 
 .sponsors {
-	padding: 0 20px;
-}
-
-.sponsors .container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -732,17 +739,6 @@ footer a {
 }
 
 /* Talks */
-
-.program > section {
-	margin-bottom: 3em;
-	padding-bottom: 2em;
-	box-shadow: 0 5px 10px -12px #000; /* subtiel lijntje */
-}
-
-.program > section:last-child {
-	box-shadow: none;
-	margin-bottom: 0;
-}
 
 .talks {
 	list-style: none;
