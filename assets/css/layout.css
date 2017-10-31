@@ -838,3 +838,182 @@ footer a {
 		line-height: 2em;
 	}
 }
+
+/* Schedule */
+
+.schedule {
+	font-size: 0.75em;
+	width:100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.website-content .schedule a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.website-content .schedule a:hover {
+	text-decoration: underline;
+}
+
+.schedule td[colspan] {
+	text-align: center;
+	background: #9C99A5;
+}
+
+.schedule td.paper-sessions {
+	background: #D89205;
+}
+
+.schedule td.keynote-lecture {
+	background: #;
+}
+
+.schedule td.workshop,
+.schedule td.demonstrations {
+	background: #f14343;
+	color: white;
+}
+
+.schedule td.social {
+	background: #0f7f12;
+	color: white;
+}
+
+.schedule td.meeting {
+	background: purple;
+	color: white;
+}
+
+.schedule td.plenary {
+	background: #09f;
+	color: white;
+}
+
+.schedule th,
+.schedule td {
+	border: 3px solid #fff;
+	padding: 0 0.5em;
+}
+
+.schedule thead tr th {
+	border: 0;
+}
+
+.schedule tr th:first-child {
+	border-left: 0;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.schedule thead th {
+	vertical-align: bottom;
+}
+
+.schedule tr > th:first-child {
+	font-weight: normal;
+	width: 3em;
+}
+
+.schedule ol {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.schedule .author {
+	display: none;
+}
+
+.schedule ol a {
+	display: block;
+	overflow: hidden;
+	max-width: calc(900px/6);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.popup {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup .popup-window {
+	position: relative;
+	flex: 0 1 auto;
+	background: white;
+	margin: 2em;
+	display: flex;
+	flex-direction: column;
+	max-height: calc(100vh - 8em);
+	max-width: 900px;
+}
+
+.popup .popup-window .popup-content {
+	flex: 1 1 auto;
+	overflow: auto;
+	padding: 1em;
+}
+
+/*.popup .popup-window .close-button {
+	flex: 0 0 auto;
+	font: inherit;
+	margin: 1em;
+	border: none;
+	background: #0f7f12;
+	color: white;
+	line-height: 1.8;
+	cursor: pointer;
+}*/
+
+.popup .popup-window .loading-message {
+	display: block;
+	padding: 3em 6em;
+	text-align: center;
+}
+
+.popup .popup-window .close-button {
+	position: absolute;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	text-align: center;
+	top: 0;
+	right: 0;
+	font: inherit;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: white;
+	color: #0f7f12;
+	cursor: pointer;
+}
+
+.popup .popup-window .close-button:hover,
+.popup .popup-window .close-button:focus {
+	background: #0f7f12;
+	color: white;
+}
+
+.popup-content .talk {
+	margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+	.popup-content .talk {
+		position: static;
+	}
+
+	.popup-content .talk .speaker {
+		top: 4.5em;
+		left: 2em;
+	}
