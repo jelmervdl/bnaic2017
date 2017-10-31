@@ -813,15 +813,16 @@ footer a {
 }
 
 /* Jump-list at the top of the accepted papers section */
+@media (min-width: 700px) {
+	.table-of-contents {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		justify-content: space-between;
+	}
 
-.table-of-contents {
-	display: flex;
-	list-style: none;
-	padding: 0;
-	justify-content: space-between;
-}
-
-.table-of-contents li {
-	flex: 1 1 auto;
-	line-height: 2em;
+	.table-of-contents li {
+		flex: 1 1 auto;
+		line-height: 2em;
+	}
 }
