@@ -851,10 +851,13 @@ footer a {
 .website-content .schedule a {
 	color: inherit;
 	text-decoration: none;
+	display: block;
+	margin: 0 -0.5em;
+	padding: 0 0.5em;
 }
 
 .website-content .schedule a:hover {
-	text-decoration: underline;
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .schedule td[colspan] {
