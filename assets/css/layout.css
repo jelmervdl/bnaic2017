@@ -828,6 +828,10 @@ section.talk .speaker {
 	content: ')';
 }
 
+.popup-content .link-to-schedule {
+	display: none;
+}
+
 /* Accepted papers */
 
 .accepted-papers h3 {
@@ -1131,9 +1135,5 @@ section.talk .speaker {
 	.popup-content .talk .speaker {
 		top: 4.75em;
 		left: 1.0em;
-	}
-
-	.popup-content .link-to-schedule {
-		display: none;
 	}
 }
