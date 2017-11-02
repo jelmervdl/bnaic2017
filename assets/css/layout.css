@@ -7,6 +7,14 @@ html, body {
 	flex-direction: column;
 }
 
+*[id]:before { 
+	display: block; 
+	content: ""; 
+	margin-top: -3rem;
+	height: 3rem;
+	visibility: hidden; 
+}
+
 /* Just between mobile and a real screen, this makes the site fit nicely */
 @media (min-width: 700px) and (max-width: 900px) {
 	body {
@@ -787,7 +795,7 @@ section.talk .speaker {
 
 	section.talk .speaker {
 		position: absolute;
-		top: 2.5em;
+		top: calc(3rem + 3.5em);
 		left: 0;
 		width: 220px;
 	}
