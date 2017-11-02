@@ -145,10 +145,10 @@ html, body {
 	position: absolute;
 	top: 2em;
 	left: 0;
-	background: white;
-	box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);
 	display: none;
 	z-index: 20;
+	background: white;
+	box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);
 }
 
 .website-navigation li:hover > ul {
@@ -261,7 +261,12 @@ html, body {
 		position: static;
 		display: block;
 		box-shadow: none;
-		text-indent: 0.75em
+		text-indent: 0.75em;
+		background:rgba(15, 127, 18, 1.0); 
+	}
+
+	.website-navigation li ul li {
+		color: white;
 	}
 
 	.website-navigation li ul li a {
