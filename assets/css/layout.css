@@ -852,7 +852,7 @@ section.talk .speaker {
 }
 
 .schedule:last-of-type {
-	margin-bottom: 0;
+	margin-bottom: 2em;
 }
 
 .schedule .row {
