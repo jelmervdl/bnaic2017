@@ -919,6 +919,7 @@ footer a {
 
 .schedule .row .plenary,
 .schedule .row .activity {
+	flex: 2 1 0;
 	text-align: center;
 	text-indent: none;
 	padding: 0.5em;
