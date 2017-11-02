@@ -805,10 +805,42 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 						programItem.querySelector('.speaker .name')
 							? programItem.querySelector('.speaker .name')
 							: programItem.querySelector('.speaker')).textContent));
+					
 					// Same for the title of the presentation/paper
 					link.appendChild($h('span', {className: 'title'}, programItem.querySelector('.title').textContent));
+					
 					// Finally add a title attribute 
 					link.title = link.querySelector('.speaker').textContent + '\n' + link.querySelector('.title').textContent;
+
+					// Now for the origin of this data, add a link back to the schedule
+					// which makes it easy while browsing to see when you should attend what!
+					try {
+						var session = $parent(link, '.schedule .row div');
+						var time = $parent(session, '.schedule .row');
+						var day = $parent(time, 'section');
+
+						var label = [
+							day.querySelector('h2').textContent.substring(0, 3),
+							' ',
+							time.querySelector('time').cloneNode(true),
+							', ',
+							session.querySelector('.location').cloneNode(true)
+						];
+
+						var backlink = $h('a', {
+							'className': 'link-to-schedule',
+							'href': '#'
+						}, label);
+
+						backlink.addEventListener('click', function(e) {
+							e.preventDefault();
+							link.focus();
+						})
+
+						programItem.appendChild(backlink);
+					} catch (e) {
+						console.error(e);
+					}
 				});
 
 				if (link.matches(':empty'))

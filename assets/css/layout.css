@@ -803,6 +803,31 @@ section.talk .speaker {
 	}
 }
 
+/* Backlinks */
+
+.link-to-schedule {
+	display: inline-block;
+	font-size: 0.65em;
+	line-height: 1.0em;
+	text-decoration: none;
+	vertical-align: baseline;
+	color: #555 !important;
+}
+
+.link-to-schedule:hover,
+.link-to-schedule:focus,
+.link-to-schedule:active {
+	text-decoration: underline;
+}
+
+.link-to-schedule::before {
+	content: '(';
+}
+
+.link-to-schedule::after {
+	content: ')';
+}
+
 /* Accepted papers */
 
 .accepted-papers h3 {
@@ -825,8 +850,12 @@ section.talk .speaker {
 }
 
 .accepted-papers .title {
-	display: block;
+	display: inline-block;
 	padding-left: 1em;
+}
+
+.accepted-papers .link-to-schedule {
+	margin-left: calc(1.0em / 0.65);
 }
 
 /* Jump-list at the top of the accepted papers section */
@@ -943,7 +972,8 @@ section.talk .speaker {
 	padding: 0 0.5em;
 }
 
-.website-content .schedule a:hover {
+.website-content .schedule a:hover,
+.website-content .schedule a:focus {
 	text-decoration: underline;
 }
 
@@ -1101,5 +1131,9 @@ section.talk .speaker {
 	.popup-content .talk .speaker {
 		top: 4.75em;
 		left: 1.0em;
+	}
+
+	.popup-content .link-to-schedule {
+		display: none;
 	}
 }
