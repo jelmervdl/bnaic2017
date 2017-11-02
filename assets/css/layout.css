@@ -959,25 +959,37 @@ footer a {
 
 /* colors! */
 
-.schedule .row .plenary {
-	/*font-size: 1.25em;*/
-	background: hsl(220, 100%, 80%);
+.schedule .row .demonstrations {
+	background: hsl(10, 80%, 80%);
 }
 
 .schedule .row .papers {
-	background: hsl(40, 100%, 80%);
-}
-
-.schedule .row .demonstrations {
-	background: hsl(10, 100%, 80%);
+	background: hsl(50, 80%, 80%);
 }
 
 .schedule .row .meeting {
-	background: hsl(90, 100%, 80%);
+	background: hsl(90, 80%, 80%);
+}
+
+.schedule .row .plenary {
+	/*font-size: 1.25em;*/
+	background: hsl(140, 80%, 80%);
 }
 
 .schedule .row .workshop {
-	background: hsl(270, 100%, 80%);
+	background: hsl(190, 80%, 80%);
+}
+
+.schedule .row .posters {
+	background: hsl(240, 80%, 80%);
+}
+
+.schedule .row .research-business {
+	background: hsl(290, 80%, 80%);
+}
+
+.schedule .row .social {
+	background: hsl(340, 80%, 80%);
 }
 
 .schedule .error {
