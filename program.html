@@ -371,7 +371,7 @@
 							<time>17:30</time>
 						</div>
 					</div>
-					
+
 					<!-- <p>Last updated: November 2, 13:00.</p> -->
 				</section>
 
@@ -819,10 +819,10 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					try {
 						var session = $parent(link, '.schedule .row div');
 						var time = $parent(session, '.schedule .row');
-						var day = $parent(time, 'section');
+						var day = $previous($parent(time, '.schedule'), 'h2');
 
 						var label = [
-							day.querySelector('h2').textContent.substring(0, 3),
+							day.textContent.substring(0, 3),
 							' ',
 							time.querySelector('time').cloneNode(true),
 							', ',

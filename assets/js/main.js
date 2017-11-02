@@ -9,12 +9,17 @@ function $(selector, callback, element) {
 }
 
 function $parent(child, selector) {
-	var element = child.parentNode;
-	
-	while (element && !element.matches(selector))
-		element = element.parentNode;
+	while (child && !child.matches(selector))
+		child = child.parentNode;
 
-	return element;
+	return child;
+}
+
+function $previous(sibling, selector) {
+	while (sibling && !sibling.matches(selector))
+		sibling = sibling.previousElementSibling;
+
+	return sibling;
 }
 
 function $h(tagName, properties, content) {
