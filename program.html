@@ -1034,7 +1034,8 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 
 						var backlink = $h('a', {
 							'className': 'meta-link link-to-schedule',
-							'href': '#'
+							'href': '#',
+							'title': 'Jump to presentation in schedule'
 						}, label);
 
 						backlink.addEventListener('click', function(e) {
@@ -1076,7 +1077,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 				var link = $h('a', {
 					'href': '#',
 					'className': 'meta-link link-to-abstract'
-				}, ['Abstract']);
+				}, ['Show Abstract']);
 
 				link.addEventListener('click', function(e) {
 					e.preventDefault();

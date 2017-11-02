@@ -833,11 +833,11 @@ section.talk .speaker {
 	text-decoration: underline;
 }
 
-.meta-link::before {
+.link-to-schedule::before {
 	content: '(';
 }
 
-.meta-link::after {
+.link-to-schedule::after {
 	content: ')';
 }
 
