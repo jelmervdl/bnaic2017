@@ -8,6 +8,15 @@ function $(selector, callback, element) {
 	return Array.prototype.map.call(element.querySelectorAll(selector), callback);
 }
 
+function $parent(child, selector) {
+	var element = child.parentNode;
+	
+	while (element && !element.matches(selector))
+		element = element.parentNode;
+
+	return element;
+}
+
 function $h(tagName, properties, content) {
 	var el = document.createElement(tagName);
 
