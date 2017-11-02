@@ -850,7 +850,7 @@ section.talk .speaker {
 }
 
 .accepted-papers .title {
-	display: inline-block;
+	display: block;
 	padding-left: 1em;
 }
 
