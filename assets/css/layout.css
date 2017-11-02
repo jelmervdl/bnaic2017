@@ -957,7 +957,7 @@ footer a {
 /* colors! */
 
 .schedule .row .demonstrations {
-	background: hsl(10, 80%, 80%);
+	background: hsl(10, 60%, 80%);
 }
 
 .schedule .row .papers {
@@ -965,28 +965,28 @@ footer a {
 }
 
 .schedule .row .meeting {
-	background: hsl(90, 80%, 80%);
+	background: hsl(90, 60%, 80%);
 }
 
 .schedule .row .plenary {
 	/*font-size: 1.25em;*/
-	background: hsl(140, 80%, 80%);
+	background: hsl(140, 60%, 80%);
 }
 
 .schedule .row .workshop {
-	background: hsl(190, 80%, 80%);
+	background: hsl(190, 60%, 80%);
 }
 
 .schedule .row .posters {
-	background: hsl(240, 80%, 80%);
+	background: hsl(240, 60%, 90%);
 }
 
 .schedule .row .research-business {
-	background: hsl(290, 80%, 80%);
+	background: hsl(290, 50%, 80%);
 }
 
 .schedule .row .social {
-	background: hsl(340, 80%, 80%);
+	background: hsl(340, 60%, 80%);
 }
 
 .schedule .error {
