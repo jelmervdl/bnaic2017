@@ -770,38 +770,34 @@ footer a {
 	clear: both;
 }
 
-.program .talk {
+section.talk {
 	position: relative;
 	margin-bottom: 3em;
 }
 
-.program .talk .speaker {
+section.talk .speaker {
 	margin-bottom: 1em;
 }
 
 @media (min-width: 700px) {
-	.program .talk,
-	.popup .talk {
+	section.talk {
 		padding-left: calc(220px + 1em);
 		min-height: calc(150px + 2.5em + 6em);
 	}
 
-	.program .talk .speaker,
-	.popup .talk .speaker {
+	section.talk .speaker {
 		position: absolute;
 		top: 2.5em;
 		left: 0;
 		width: 220px;
 	}
 
-	.program .talk .speaker .photo,
-	.popup .talk .speaker .photo {
+	section.talk .speaker .photo {
 		margin: 0 auto;
 		float: none;
 	}
 
-	.program .talk .speaker > *,
-	.popup .talk .speaker > * {
+	section.talk .speaker > * {
 		display: block;
 		text-align: center;
 	}
@@ -830,7 +826,7 @@ footer a {
 
 .accepted-papers .title {
 	display: block;
-	text-indent: 2em;
+	padding-left: 1em;
 }
 
 /* Jump-list at the top of the accepted papers section */
@@ -855,6 +851,10 @@ footer a {
 	margin-bottom: 5em;
 }
 
+.schedule:last-of-type {
+	margin-bottom: 0;
+}
+
 .schedule .row {
 	display: flex;
 	flex-direction: column;
@@ -862,10 +862,15 @@ footer a {
 }
 
 .schedule .row time {
+	box-sizing: border-box;
+
 	flex: 0 0 auto;
 	align-self: flex-start;
 	display: inline-block;
 	width: 3em;
+	
+	text-align: right;
+	padding-right: 0.5em;
 
 	line-height: 2em;
 	margin: -1em 0;
@@ -921,7 +926,7 @@ footer a {
 .schedule .row .activity {
 	flex: 1 1 0;
 	text-align: center;
-	text-indent: none;
+	text-indent: 0;
 	padding: 0.5em;
 }
 
