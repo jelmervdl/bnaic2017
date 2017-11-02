@@ -396,7 +396,7 @@ html, body {
 .website-content > .container > section {
 	margin-bottom: 3em;
 	padding-bottom: 2em;
-	box-shadow: 0 5px 10px -12px #000; /* subtiel lijntje */
+	box-shadow: 0 7px 10px -12px #000; /* subtiel lijntje */
 }
 
 .website-content > .container > section:last-child {
