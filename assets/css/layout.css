@@ -757,15 +757,6 @@ footer a {
 	padding: 0;
 }
 
-.talk {
-	position: relative;
-	margin-bottom: 3em;
-}
-
-.talk .speaker {
-	margin-bottom: 1em;
-}
-
 .talk .speaker .photo {
 	height: 150px;
 	vertical-align: middle;
@@ -779,25 +770,38 @@ footer a {
 	clear: both;
 }
 
+.program .talk {
+	position: relative;
+	margin-bottom: 3em;
+}
+
+.program .talk .speaker {
+	margin-bottom: 1em;
+}
+
 @media (min-width: 700px) {
-	.talk {
+	.program .talk,
+	.popup .talk {
 		padding-left: calc(220px + 1em);
 		min-height: calc(150px + 2.5em + 6em);
 	}
 
-	.talk .speaker {
+	.program .talk .speaker,
+	.popup .talk .speaker {
 		position: absolute;
 		top: 2.5em;
 		left: 0;
 		width: 220px;
 	}
 
-	.talk .speaker .photo {
+	.program .talk .speaker .photo,
+	.popup .talk .speaker .photo {
 		margin: 0 auto;
 		float: none;
 	}
 
-	.talk .speaker > * {
+	.program .talk .speaker > *,
+	.popup .talk .speaker > * {
 		display: block;
 		text-align: center;
 	}
@@ -819,9 +823,14 @@ footer a {
 	margin-bottom: 0.5em;
 }
 
-.accepted-papers .author {
+.accepted-papers .speaker {
 	font-style: italic;
 	display: block;
+}
+
+.accepted-papers .title {
+	display: block;
+	text-indent: 2em;
 }
 
 /* Jump-list at the top of the accepted papers section */
@@ -843,9 +852,80 @@ footer a {
 
 .schedule {
 	font-size: 0.75em;
-	width:100%;
-	table-layout: fixed;
-	border-collapse: collapse;
+	margin-bottom: 5em;
+}
+
+.schedule .row {
+	display: flex;
+	flex-direction: column;
+}
+
+.schedule .row time {
+	flex: 0 0 auto;
+	align-self: flex-start;
+	display: inline-block;
+	width: 3em;
+
+	line-height: 2em;
+	margin: -1em 0;
+
+	top: 3.5em;
+	position: -webkit-sticky;
+	position: sticky;
+}
+
+.schedule .row div {
+	flex: 1 1 0;
+	display: block;
+	background: #eee;
+	margin: 0.125em;
+	padding: 0 0.5em;
+	margin-left: 3em;
+}
+
+.schedule .row div h3 {
+	margin: 0;
+	text-align: center; 
+}
+
+.schedule .row div a {
+	margin-bottom: 0.5em;
+}
+
+.schedule .row div .speaker,
+.schedule .row div .title {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+.schedule .row div .speaker {
+	font-style: italic;
+}
+
+.schedule .row div .title {
+	text-indent: 0.5em;
+}
+
+.schedule .row div .affinity {
+	display: none;
+}
+
+.schedule .row .posters a {
+	/*display: none;*/
+}
+
+.schedule .row .plenary,
+.schedule .row .activity {
+	text-align: center;
+	text-indent: none;
+	padding: 0.5em;
+}
+
+.schedule .row .location {
+	display: block;
+	text-align: center;
 }
 
 .website-content .schedule a {
@@ -857,85 +937,50 @@ footer a {
 }
 
 .website-content .schedule a:hover {
-	background: rgba(255, 255, 255, 0.3);
+	text-decoration: underline;
 }
 
-.schedule td[colspan] {
-	text-align: center;
-	background: #9C99A5;
+/* Also switch to desktop (column) layout when rotating the device */
+@media (min-width: 700px), (min-width: 500px) and (orientation: landscape) {
+	.schedule .row {
+		flex-direction: row;
+	}
+
+	.schedule .row div {
+		overflow: hidden;
+		margin-left: initial;
+	}
 }
 
-.schedule td.paper-sessions {
-	background: #D89205;
+/* colors! */
+
+.schedule .row .plenary {
+	/*font-size: 1.25em;*/
+	background: hsl(220, 100%, 80%);
 }
 
-.schedule td.keynote-lecture {
-	background: #;
+.schedule .row .papers {
+	background: hsl(40, 100%, 80%);
 }
 
-.schedule td.workshop,
-.schedule td.demonstrations {
-	background: #f14343;
-	color: white;
+.schedule .row .demonstrations {
+	background: hsl(10, 100%, 80%);
 }
 
-.schedule td.social {
-	background: #0f7f12;
-	color: white;
+.schedule .row .meeting {
+	background: hsl(90, 100%, 80%);
 }
 
-.schedule td.meeting {
-	background: purple;
-	color: white;
+.schedule .row .workshop {
+	background: hsl(270, 100%, 80%);
 }
 
-.schedule td.plenary {
-	background: #09f;
-	color: white;
+.schedule .error {
+	color: red;
+	font-weight: bold;
 }
 
-.schedule th,
-.schedule td {
-	border: 3px solid #fff;
-	padding: 0 0.5em;
-}
-
-.schedule thead tr th {
-	border: 0;
-}
-
-.schedule tr th:first-child {
-	border-left: 0;
-	border-top: 0;
-	border-bottom: 0;
-}
-
-.schedule thead th {
-	vertical-align: bottom;
-}
-
-.schedule tr > th:first-child {
-	font-weight: normal;
-	width: 3em;
-}
-
-.schedule ol {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-
-.schedule .author {
-	display: none;
-}
-
-.schedule ol a {
-	display: block;
-	overflow: hidden;
-	max-width: calc(900px/6);
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
+/* Popup */
 
 .popup {
 	position: fixed;
@@ -946,7 +991,7 @@ footer a {
 	z-index: 20;
 	background: rgba(0, 0, 0, 0.8);
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 }
 
@@ -954,10 +999,10 @@ footer a {
 	position: relative;
 	flex: 0 1 auto;
 	background: white;
-	margin: 2em;
+	margin: 3em 0 0 0;
 	display: flex;
 	flex-direction: column;
-	max-height: calc(100vh - 8em);
+	max-height: calc(100vh - 3em);
 	max-width: 900px;
 }
 
@@ -966,17 +1011,6 @@ footer a {
 	overflow: auto;
 	padding: 1em;
 }
-
-/*.popup .popup-window .close-button {
-	flex: 0 0 auto;
-	font: inherit;
-	margin: 1em;
-	border: none;
-	background: #0f7f12;
-	color: white;
-	line-height: 1.8;
-	cursor: pointer;
-}*/
 
 .popup .popup-window .loading-message {
 	display: block;
@@ -1007,11 +1041,16 @@ footer a {
 	color: white;
 }
 
-.popup-content .talk {
-	margin-bottom: 0;
-}
-
 @media (min-width: 700px) {
+	.popup {
+		align-items: center;
+	}
+
+	.popup .popup-window {
+		margin: 2em;
+		max-height: calc(100vh - 8em);
+	}
+
 	.popup-content .talk {
 		position: static;
 	}

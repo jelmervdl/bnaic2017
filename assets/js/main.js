@@ -93,10 +93,6 @@ function popup(constructor) {
 
 $('.schedule a[href^="program.html#"]', function(link) {
 	var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
-
-	if (!url)
-		return;
-
 	link.addEventListener('click', function(e) {
 		if (e.shiftKey || e.metaKey)
 			return;
@@ -120,6 +116,22 @@ $('.schedule a[href^="program.html#"]', function(link) {
 	});
 });
 
-$('.schedule a', function(link) {
-	link.title = link.textContent.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+fetchSelector('program.html', '.program', function(program) {
+	$('.schedule a[href^="program.html#"]:empty', function(link) {
+		var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
+		$(url[2], function(programItem) {
+			// Move the speaker to a speaker span
+			link.appendChild($h('span', {className: 'speaker'}, (
+				programItem.querySelector('.speaker .name')
+					? programItem.querySelector('.speaker .name')
+					: programItem.querySelector('.speaker')).textContent));
+			// Same for the title of the presentation/paper
+			link.appendChild($h('span', {className: 'title'}, programItem.querySelector('.title').textContent));
+			// Finally add a title attribute 
+			link.title = link.querySelector('.speaker').textContent + '\n' + link.querySelector('.title').textContent;
+		}, program);
+
+		if (link.matches(':empty'))
+			link.appendChild($h('span', {'className': 'error'}, ['Missing info for ' + url[2]]));
+	});
 });
