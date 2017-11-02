@@ -1054,6 +1054,23 @@ footer a {
 	color: white;
 }
 
+.popup-content > li {
+	list-style: none;
+}
+
+.popup-content > li > .speaker,
+.popup-content > li > .title {
+	display: block;
+}
+
+.popup-content > li > .speaker {
+	font-style: italic;
+}
+
+.popup-content > li > .title {
+	padding-left: 1em;
+}
+
 @media (min-width: 700px) {
 	.popup {
 		align-items: center;
