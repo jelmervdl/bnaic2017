@@ -387,6 +387,24 @@
 					if (link.matches(':empty'))
 						link.appendChild($h('span', {'className': 'error'}, ['Missing info for ' + url[2]]));
 				});
+
+				$('.schedule a[href^="program.html#"]', function(link) {
+					var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
+					link.addEventListener('click', function(e) {
+						if (e.shiftKey || e.metaKey)
+							return;
+
+						// Prevent default behaviour
+						e.preventDefault();
+
+						// Open a modal popup window
+						popup(function(root) {
+							$(url[2], function(content) {
+								root.appendChild(content.cloneNode(true));
+							}, program);
+						});
+					});
+				});
 			});
 
 		</script>

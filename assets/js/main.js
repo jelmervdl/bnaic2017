@@ -91,27 +91,3 @@ function popup(constructor) {
 	return root;
 }
 
-$('.schedule a[href^="program.html#"]', function(link) {
-	var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
-	link.addEventListener('click', function(e) {
-		if (e.shiftKey || e.metaKey)
-			return;
-
-		// Prevent default behaviour
-		e.preventDefault();
-
-		// Open a modal popup window
-		popup(function(root) {
-			// Start with a loading message in the popup
-			var loading = $h('span', {'className': 'loading-message'}, ['Loading…']);
-			root.appendChild(loading);
-
-			// Fetch the actual information, and replace the loading message
-			// with that content.
-			fetchSelector(url[1], url[2], function(content) {
-				root.removeChild(loading);
-				root.appendChild(content);
-			});
-		});
-	});
-});
