@@ -858,6 +858,7 @@ footer a {
 .schedule .row {
 	display: flex;
 	flex-direction: column;
+	min-height: 3em;
 }
 
 .schedule .row time {
