@@ -879,7 +879,7 @@ footer a {
 	flex: 1 1 0;
 	display: block;
 	background: #eee;
-	margin: 0.125em;
+	margin: 0.125em 0.25em;
 	padding: 0 0.5em;
 	margin-left: 3em;
 }
@@ -919,7 +919,7 @@ footer a {
 
 .schedule .row .plenary,
 .schedule .row .activity {
-	flex: 2 1 0;
+	flex: 1 1 0;
 	text-align: center;
 	text-indent: none;
 	padding: 0.5em;
