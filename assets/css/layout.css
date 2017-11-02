@@ -818,7 +818,7 @@ section.talk .speaker {
 
 /* Backlinks */
 
-.link-to-schedule {
+.meta-link {
 	display: inline-block;
 	font-size: 0.65em;
 	line-height: 1.0em;
@@ -827,21 +827,21 @@ section.talk .speaker {
 	color: #555 !important;
 }
 
-.link-to-schedule:hover,
-.link-to-schedule:focus,
-.link-to-schedule:active {
+.meta-link:hover,
+.meta-link:focus,
+.meta-link:active {
 	text-decoration: underline;
 }
 
-.link-to-schedule::before {
+.meta-link::before {
 	content: '(';
 }
 
-.link-to-schedule::after {
+.meta-link::after {
 	content: ')';
 }
 
-.popup-content .link-to-schedule {
+.popup-content .meta-link {
 	display: none;
 }
 
@@ -871,7 +871,11 @@ section.talk .speaker {
 	padding-left: 1em;
 }
 
-.accepted-papers .link-to-schedule {
+.accepted-papers .abstract {
+	display: none;
+}
+
+.accepted-papers .meta-link {
 	margin-left: calc(1.0em / 0.65);
 }
 
@@ -1107,8 +1111,13 @@ section.talk .speaker {
 	color: white;
 }
 
+.popup-content p:last-child {
+	margin-bottom: 0;
+}
+
 .popup-content > li {
 	list-style: none;
+	max-width: 700px;
 }
 
 .popup-content > li > .speaker,
@@ -1121,7 +1130,8 @@ section.talk .speaker {
 }
 
 .popup-content > li > .title {
-	padding-left: 1em;
+	margin: 1em 0;
+	font-weight: bold;
 }
 
 @media (max-width: 700px) {
