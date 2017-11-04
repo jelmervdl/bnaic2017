@@ -94,6 +94,7 @@ if ($registration_form->submitted() && count($errors) == 0) {
 						<li><a href="program.html#keynote-speakers">Keynote speakers</a></li>
 						<li><a href="program.html#fact-talks">FACt talks</a></li>
 						<li><a href="program.html#accepted-papers">Accepted papers and demonstrations</a></li>
+						<li><a href="program.html#author-index">Author index</a></li>
 						<li><a href="program.html#nvidia-deep-learning-workshop">NVIDIA Deep Learning Workshop</a></li>
 					</ul>
 				</li>
