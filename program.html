@@ -971,6 +971,11 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					</ul>
 				</section>
 
+				<section id="author-index">
+					<h2>Author index</h2>
+					<!-- Generated through javascript on page load -->
+				</section>
+
 				<section class="workshop" id="nvidia-deep-learning-workshop">
 					<h2>NVIDIA deep learning workshop</h2>
 					<p>For participants of BNAIC'2017, there is the possibility to follow a free workshop organized by NVIDIA about deep learning. If you are not experienced with using deep learning algorithms and frameworks, but you would like to learn about this, please register for this workshop by sending an email to <a href="mailto:Marco Wiering &lt;m.a.wiering@rug.nl&gt;">m.a.wiering@rug.nl</a> before 2 November 2017, 12.00h. Note that as there is a maximum of 30 participants for this workshop, registrations will be selected based on a first mail first served basis. More information about this workshop can be found below.</p>
@@ -1054,21 +1059,22 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 			});
 
 			// And this makes the names in the schedule clickable
-			$('.schedule a[href^="program.html#"]', function(link) {
-				var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
-				link.addEventListener('click', function(e) {
+			$('.website-content', function(page) {
+				watch(page, 'click', 'a[href^="program.html#"]', function(e) {
 					if (e.shiftKey || e.metaKey)
 						return;
 
-					// Prevent default behaviour
-					e.preventDefault();
-
+					var url = this.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
+						
 					// Open a modal popup window
 					popup(function(root) {
 						$(url[2], function(content) {
 							root.appendChild(content.cloneNode(true));
 						});
 					});
+
+					// Prevent default behaviour
+					e.preventDefault();
 				});
 			});
 
@@ -1088,7 +1094,62 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 				});
 
 				abstract.parentNode.insertBefore(link, abstract);
-			})
+			});
+
+			// Create an author index
+			$('#author-index', function(section) {
+				// Turn "A, B and C" and variants into [A,B,C]
+				function parseAuthors(authorString) {
+					var match = authorString.split(' and ');
+					if (match.length === 1)
+						return [authorString];
+					else
+						return match[0].split(', ').concat(match[1]);
+				}
+
+				// make it last-name first-names
+				function normalizeAuthor(author) {
+					var spaceIdx = author.lastIndexOf(' ');
+					return author.substring(spaceIdx + 1) + ', ' + author.substring(0, spaceIdx);
+				}
+
+				// The map with {author: [papers]}
+				var authorIndex = {};
+
+				// Scan all speakers that are part of a linkable paper
+				$('.accepted-papers li[id] .speaker', function(speakerElement, n) {
+					var item = $parent(speakerElement, 'li[id]');
+					var title = item.querySelector('.title').textContent;
+					var authors = parseAuthors(speakerElement.textContent).map(normalizeAuthor);
+
+					// Create an entry to this paper for every author
+					authors.forEach(function(author) {
+						if (!(author in authorIndex))
+							authorIndex[author] = [];
+						authorIndex[author].push({
+							id: item.id,
+							title: title,
+							index: n + 1
+						});
+					});
+				});
+
+				// Append the index as a list to the author index section
+				section.appendChild(
+					$h('ol', {classList: 'author-index'}, 
+						Object.keys(authorIndex).sort().map(function(author) {
+							return $h('li', {}, [
+								$h('span', {className: 'author'}, [author]),
+								$h('ul', {}, authorIndex[author].map(function(paper, n) {
+									return $h('li', {}, [
+										$h('a', {href: 'program.html#' + paper.id, title: paper.title}, ['#' + paper.index])
+									])
+								}))
+							]);
+						})
+					)
+				);
+			});
 		</script>
 	</body>
 </html>

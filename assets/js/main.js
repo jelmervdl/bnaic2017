@@ -10,7 +10,7 @@ function $(selector, callback, element) {
 
 function $parent(child, selector) {
 	while (child && !child.matches(selector))
-		child = child.parentNode;
+		child = child.parentElement;
 
 	return child;
 }
@@ -44,11 +44,11 @@ function $h(tagName, properties, content) {
 }
 
 function watch(rootElement, event, selector, callback) {
-	rootElement.addEventListener(event, function(e) {
+	return rootElement.addEventListener(event, function(e) {
 		var element = e.target;
 
 		while (element && !element.matches(selector))
-			element = element.parentNode;
+			element = element.parentElement;
 
 		if (element)
 			callback.call(element, e);

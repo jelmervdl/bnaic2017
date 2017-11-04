@@ -899,6 +899,29 @@ section.talk .speaker {
 	}
 }
 
+/* Author index */
+
+.author-index {
+	list-style: none;
+	padding: 0;
+}
+
+.author-index li ul {
+	padding: 0;
+	display: inline;
+}
+
+.author-index li ul li {
+	display: inline-block;
+	padding: 0 0 0 1ch;
+}
+
+@media (min-width: 700px) {
+	.author-index {
+		column-count: 3;
+	}
+}
+
 /* Schedule */
 
 .schedule {
