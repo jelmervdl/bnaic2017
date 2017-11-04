@@ -339,7 +339,7 @@ html, body {
 	}
 
 	.website-navigation:focus .container {
-		max-height: calc(100vh - 2.5em);
+		max-height: calc(100vh - 2.5em - 44px);
 		overflow: auto;
 	}
 
