@@ -339,7 +339,7 @@ html, body {
 	}
 
 	.website-navigation:focus .container {
-		max-height: 100vh;
+		max-height: calc(100vh - 2.5em);
 		overflow: auto;
 	}
 
@@ -841,7 +841,7 @@ section.talk .speaker {
 	content: ')';
 }
 
-.popup-content .meta-link {
+.popup-content .link-to-abstract {
 	display: none;
 }
 
@@ -877,6 +877,11 @@ section.talk .speaker {
 
 .accepted-papers .meta-link {
 	margin-left: calc(1.0em / 0.65);
+}
+
+.accepted-papers li:target .speaker,
+.accepted-papers li:target .title {
+	background: hsl(60, 100%, 80%);
 }
 
 /* Jump-list at the top of the accepted papers section */
@@ -1069,11 +1074,11 @@ section.talk .speaker {
 	position: relative;
 	flex: 0 1 auto;
 	background: white;
-	margin: 3em 0 0 0;
+	margin: 2.75em 0 0 0;
 	display: flex;
 	flex-direction: column;
-	max-height: calc(100vh - 3em);
-	max-width: 900px;
+	max-height: calc(100vh - 2.75em);
+	max-width: 100%;
 }
 
 .popup .popup-window .popup-content {
@@ -1090,12 +1095,12 @@ section.talk .speaker {
 
 .popup .popup-window .close-button {
 	position: absolute;
-	height: 2em;
-	width: 2em;
-	line-height: 2em;
+	height: 2.75em;
+	width: 2.75em;
+	line-height: 2.75em;
 	text-align: center;
-	top: 0;
-	right: 0;
+	top: -2.75em;
+	left: 0;
 	font: inherit;
 	border: 0;
 	margin: 0;
@@ -1134,6 +1139,10 @@ section.talk .speaker {
 	font-weight: bold;
 }
 
+.popup-content a {
+	word-break: break-all;
+}
+
 @media (max-width: 700px) {
 	.popup .popup-window .popup-content {
 		overflow-y: scroll;
@@ -1149,6 +1158,13 @@ section.talk .speaker {
 	.popup .popup-window {
 		margin: 2em;
 		max-height: calc(100vh - 8em);
+		max-width: 900px;
+	}
+
+	.popup .popup-window .close-button {
+		top: 0;
+		right: 0;
+		left: auto;
 	}
 
 	.popup-content .talk {
