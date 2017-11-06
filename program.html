@@ -157,15 +157,18 @@
 								<h3>IPN SIG AI Meeting</h3>
 							</div>
 							<div class="demonstrations">
-								<span class="location">Rooms 1.08 and 1.09</span>
-								<span class="location">Central hall 1<sup>st</sup> floor</span>
 								<h3>Demonstrations</h3>
+								<span class="location">Room 1.08</span>
+								<a class="demonstration" href="program.html#demo-gerbscheid"></a>
+
+								<span class="location">Central hall 1<sup>st</sup> floor</span>
 								<a class="demonstration" href="program.html#demo-steckelmacher"></a>
+								
+								<span class="location">Room 1.09</span>
 								<a class="demonstration" href="program.html#demo-vamplew"></a>
 								<a class="demonstration" href="program.html#demo-van-der-zant"></a>
 								<a class="demonstration" href="program.html#demo-legrand"></a>
 								<a class="demonstration" href="program.html#demo-timmermans"></a>
-								<a class="demonstration" href="program.html#demo-gerbscheid"></a>
 							</div>
 							<div class="posters">
 								<span class="location">Central hall 1<sup>st</sup> floor</span>
@@ -1022,13 +1025,14 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 						var session = $parent(link, '.schedule .row div');
 						var time = $parent(session, '.schedule .row');
 						var day = $previous($parent(time, '.schedule'), 'h2');
+						var location = $previous(link, '.location');
 
 						var label = [
 							day.textContent.substring(0, 3),
 							' ',
 							time.querySelector('time').cloneNode(true),
 							', ',
-							session.querySelector('.location').cloneNode(true)
+							location.cloneNode(true)
 						];
 
 						var backlink = $h('a', {
