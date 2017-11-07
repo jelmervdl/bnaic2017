@@ -85,7 +85,7 @@
 						<tbody>
 							<tr class="hotel">
 								<td class="name"><a href="https://www.nh-hotels.com/hotel/nh-groningen-hotel-de-ville"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Oude Boteringestraat 43-45 9712 GD Groningen"
 									data-place-id="ChIJK-r3EVDNyUcRFImI8FfX1dA"
 									data-lat-lng="53.2201068,6.563981300000001">Hotel NH Groningen Hotel de Ville</a></td>
@@ -98,7 +98,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="http://www.rug.nl/society-business/university-hotel/"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Kleine Kromme Elleboog 7-b 9712 BS Groningen"
 									data-place-id="ChIJZzbm1U_NyUcReMmySGGJNis"
 									data-lat-lng="53.2186062,6.5618414">University Hotel</a></td>
@@ -114,7 +114,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="https://www.martinihotel.nl/"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Gedempte Zuiderdiep 8 9711 HG Groningen"
 									data-place-id="ChIJGUdxkFbNyUcRbREDXjhEBVE"
 									data-lat-lng="53.2156706,6.570920699999999">Martini Hotel</a></td>
@@ -127,7 +127,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="http://www.charmehotels.eu/en/groningen"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Oosterstraat 53, 9711 NR Groningen"
 									data-place-id="ChIJyWw5wVbNyUcRRicZAzFBX7o"
 									data-lat-lng="53.21662319999999,6.569841199999999">Hotel Schimmelpenninck Huys</a></td>
@@ -143,7 +143,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="http://www.postillionhotels.com/en-gb/hotels/postillion-hotel-haren-groningen"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Emmalaan 33, 9752 KS Haren"
 									data-place-id="ChIJLbYe4wotyEcRG-dFngfXGAU"
 									data-lat-lng="53.1676156,6.594553899999999">Postillion Hotel Haren Groningen</a></td>
@@ -159,7 +159,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="http://www.simplonjongerenhotel.nl"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Boterdiep 73-2 9712 LL Groningen"
 									data-place-id="ChIJxaVXNFvNyUcRIzVNWiFFN5M"
 									data-lat-lng="53.224777,6.5638552">Simplon Jongerenhotel</a></td>
@@ -175,7 +175,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="https://hampshire-groningen.nl/"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Radesingel 50 9711 EK Groningen"
 									data-place-id="ChIJQ_t8HlbNyUcRT_pUkx_y8Uo"
 									data-lat-lng="53.2158746,6.5749773">Hampshire Hotel Groningen Centre</a></td>
@@ -188,7 +188,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="https://www.booking.com/hotel/nl/trip-en-co.en-us.html"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Turftorenstraat 11A 9712 BL Groningen"
 									data-place-id="ChIJaWQqLU7NyUcR_c7zsuhks2w"
 									data-lat-lng="53.2182954,6.561365099999999">B&amp;B Trip&amp;Co</a></td>
@@ -201,7 +201,7 @@
 							</tr>
 							<tr class="hotel">
 								<td class="name"><a href="http://www.corpsdegarde.nl"
-									class="location" target="_blank"
+									class="green location" target="_blank"
 									data-address="Oude Boteringestraat 74, 9712 GN Groningen"
 									data-place-id="ChIJC9dYqlrNyUcRkw8HfwFs4gs"
 									data-lat-lng="53.22101379999999,6.562835199999999">Hotel Corps de Garde</a></td>
@@ -269,10 +269,20 @@
 				var markers = $('.location', function(el) {
 					var latlng = parseLatLng(el.dataset.latLng);
 					var label = labels[labelIndex++ % labels.length];
+					var color = el.className.match(/\b(?:red|green)\b/) || 'red';
 					var options = {
 						map: map,
 						position: latlng,
-						label: label,
+						label: {
+							color: '#fff',
+							text: label
+						},
+						icon: {
+							url: 'assets/img/spotlight-poi-dotless-' + color + '.png',
+							size: new google.maps.Size(22, 55),
+							origin: new google.maps.Point(0, -15),
+							anchor: new google.maps.Point(11, 55)
+						}
 					};
 
 					var marker = new google.maps.Marker(options);
@@ -289,7 +299,7 @@
 
 					marker.addListener('click', showPopup);
 
-					var sup = $h('sup', {className: 'marker-label'}, label);
+					var sup = $h('sup', {className: 'marker-label ' + color}, label);
 					el.parentNode.insertBefore(sup, el.nextSibling);
 
 					sup.addEventListener('click', function(e) {
