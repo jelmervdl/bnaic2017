@@ -43,14 +43,17 @@
 			<div class="container">
 				<section>
 					<h1>Venue</h1>
-					<p>The conference will be held in <a class="location" data-lat-lng="53.2178446,6.554970199" data-place-id="ChIJFWF2MknNyUcRAdHEfNVM54Q" data-address="Melkweg 1, 9718 EP Groningen" href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p
-						data-lat-lng="53.2178446,6.554970199999999">
+					<p>The conference will be held in <a class="location" data-lat-lng="53.2178446,6.554970199" data-place-id="ChIJFWF2MknNyUcRAdHEfNVM54Q" data-address="Melkweg 1, 9718 EP Groningen" href="http://www.hetkasteel.com/?lang=en">Het Kasteel</a>.</p>
 					<p>This Neo-Gothic building with the tower of Foucault and its famous pendulum, the hall with the geometric patterns and the Escher ceiling, the stairwell with the stained-glass windows, the Gothic pointed arch windows and the richly decorated stairwells are an architectural attraction, a museum in their own right.</p>
 
 					<figure>
 						<img src="assets/img/20100423_Mineralogisch-Geologisch_Instituut_Groningen_NL.jpg">
 						<figcaption>Het Kasteel (<a href="https://nl.wikipedia.org/wiki/Bestand:100423_Mineralogisch-Geologisch_Instituut_Groningen_NL.jpg">source</a>)</figcaption>
 					</figure>
+				</section>
+				<section>
+					<h1>Social</h1>
+					<p>In the late afternoon on Wednesday there will be a tour of (and up!) the <a href="https://toerisme.groningen.nl/over-groningen/stad-groningen/martinitoren" class="location" data-address="Martinikerkhof 3, 9712 JG Groningen" data-lat-lng="53.219364,6.568114">Martinitoren</a>, the 97-metre tower that still dominates the Groningen skyline. Afterwards the conference dinner will take place in <a href="https://www.restaurant-feithhuis.nl" class="location" data-address="Martinikerkhof 10, 9712 JG Groningen" data-lat-lng="53.219209,6.569279">'t Feithhuis</a>, located in the very heart of the city centre.</p>
 				</section>
 				<section id="map-section">
 					<h1>Map</h1>
@@ -287,7 +290,7 @@
 					marker.addListener('click', showPopup);
 
 					var sup = $h('sup', {className: 'marker-label'}, label);
-					el.parentNode.insertBefore(sup, el.nextSilbing);
+					el.parentNode.insertBefore(sup, el.nextSibling);
 
 					sup.addEventListener('click', function(e) {
 						// Scroll the map into view
