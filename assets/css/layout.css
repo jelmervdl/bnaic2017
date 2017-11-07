@@ -1011,6 +1011,7 @@ section.talk .speaker {
 .schedule .row .location {
 	display: block;
 	text-align: center;
+	margin-bottom: 0;
 }
 
 .schedule .row .chair {
