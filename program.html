@@ -45,6 +45,7 @@
 					<h1>Schedule</h1>
 
 					<p>The program is also available as <a href="program.pdf">a PDF file</a>.</p>
+					<p>All accepted papers themselves can be found in <a href="preproceedings.pdf">the preproceedings (PDF)</a>.</p>
 					
 					<h2>Wednesday</h2>
 					<div class="schedule">
@@ -1014,6 +1015,35 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 
 		<script src="assets/js/main.js"></script>
 		<script>
+			// Add a toggle for the abstracts in the accepted papers list
+			$('.accepted-papers .abstract', function(abstract) {
+				var link = $h('a', {
+					'href': '#',
+					'className': 'meta-link link-to-abstract'
+				}, ['Show Abstract']);
+
+				link.addEventListener('click', function(e) {
+					e.preventDefault();
+					popup(function(root) {
+						root.appendChild(abstract.parentNode.cloneNode(true));
+					});
+					// abstract.style.display = abstract.style.display == 'block' ? '' : 'block';
+				});
+
+				abstract.parentNode.insertBefore(link, abstract);
+			});
+
+			// Add links to preproceedings
+			$('.accepted-papers *[data-easychair-id]', function(paper) {
+				var link = $h('a', {
+					'href': 'preproceedings.pdf#paper-%d.chapter'.replace(/%d/, paper.dataset.easychairId),
+					'className': 'meta-link link-to-preproceedings',
+					'target': '_blank'
+				}, ['Show in preproceedings']);
+
+				paper.appendChild(link);
+			});
+
 			// This adds the actual names to the schedule
 			$('.schedule a[href^="program.html#"]:empty', function(link) {
 				var url = link.href.match(/^(.+?program.html)(#[a-z0-9_-]+)$/);
@@ -1085,24 +1115,6 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					// Prevent default behaviour
 					e.preventDefault();
 				});
-			});
-
-			// Add a toggle for the abstracts in the accepted papers list
-			$('.accepted-papers .abstract', function(abstract) {
-				var link = $h('a', {
-					'href': '#',
-					'className': 'meta-link link-to-abstract'
-				}, ['Show Abstract']);
-
-				link.addEventListener('click', function(e) {
-					e.preventDefault();
-					popup(function(root) {
-						root.appendChild(abstract.parentNode.cloneNode(true));
-					});
-					// abstract.style.display = abstract.style.display == 'block' ? '' : 'block';
-				});
-
-				abstract.parentNode.insertBefore(link, abstract);
 			});
 
 			// Create an author index
