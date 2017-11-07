@@ -1013,6 +1013,15 @@ section.talk .speaker {
 	text-align: center;
 }
 
+.schedule .row .chair {
+	display: block;
+	text-align: center;
+}
+
+.schedule .row .chair::before {
+	content: 'Chaired by ';
+}
+
 .website-content .schedule a {
 	color: inherit;
 	text-decoration: none;
