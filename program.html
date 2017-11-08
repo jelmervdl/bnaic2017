@@ -1200,8 +1200,13 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					line.style.top = Math.round(offset) + 'px';
 				}
 
+				// Update (as initialisation) right now
 				update();
 
+				// Update when we rotate the screen (because the offsets change)
+				window.addEventListener('resize', update);
+
+				// And update every five seconds to stay up to date
 				setInterval(update, 5000);
 			});
 
