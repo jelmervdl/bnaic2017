@@ -1204,6 +1204,13 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 
 				setInterval(update, 5000);
 			});
+
+			$('#now', function(indicator) {
+				$('#schedule h2', function(header) {
+					var btn = $h('a', {'href': '#now', 'className': 'go-to-now'}, ['Jump to now']);
+					header.parentNode.insertBefore(btn, header);
+				})
+			});
 		</script>
 	</body>
 </html>

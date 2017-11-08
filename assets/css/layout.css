@@ -1044,6 +1044,18 @@ section.talk .speaker {
 
 .schedule .current-time-indicator {
 	display: none;
+	position: absolute;
+	left: 2.8em;
+	right: 0;
+	border-bottom: 2px solid rgba(255, 0, 0, 0.4);
+	pointer-events: none;
+	height: 6em;
+	margin-top: -6em;
+}
+
+.go-to-now {
+	display: none;
+	float: right;
 }
 
 /* Also switch to desktop (column) layout when rotating the device */
@@ -1059,10 +1071,10 @@ section.talk .speaker {
 
 	.schedule .current-time-indicator {
 		display: block;
-		position: absolute;
-		left: 2.8em;
-		right: 0;
-		border: 1px solid red;
+	}
+
+	.go-to-now {
+		display: inline;
 	}
 }
 
