@@ -1181,7 +1181,7 @@ http://www.nature.com/nature/journal/v549/n7671/full/549157a.html?foxtrotcallbac
 					return {row: row, start: start, end: end};
 				}, schedule);
 
-				var line = $h('div', {className: 'current-time-indicator'}, []);
+				var line = $h('div', {id: 'now', className: 'current-time-indicator'}, []);
 				
 				function update() {
 					var now = new Date();

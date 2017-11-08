@@ -1042,6 +1042,10 @@ section.talk .speaker {
 	text-decoration: underline;
 }
 
+.schedule .current-time-indicator {
+	display: none;
+}
+
 /* Also switch to desktop (column) layout when rotating the device */
 @media (min-width: 700px), (min-width: 500px) and (orientation: landscape) {
 	.schedule .row {
@@ -1051,6 +1055,14 @@ section.talk .speaker {
 	.schedule .row div {
 		overflow: hidden;
 		margin-left: initial;
+	}
+
+	.schedule .current-time-indicator {
+		display: block;
+		position: absolute;
+		left: 2.8em;
+		right: 0;
+		border: 1px solid red;
 	}
 }
 
@@ -1092,15 +1104,6 @@ section.talk .speaker {
 .schedule .error {
 	color: red;
 	font-weight: bold;
-}
-
-/* Indicator */
-
-.schedule .current-time-indicator {
-	position: absolute;
-	left: 2.8em;
-	right: 0;
-	border: 1px solid red;
 }
 
 /* Popup */
