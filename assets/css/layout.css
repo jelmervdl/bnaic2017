@@ -932,6 +932,7 @@ section.talk .speaker {
 .schedule {
 	font-size: 0.75em;
 	margin-bottom: 5em;
+	position: relative;
 }
 
 .schedule:last-of-type {
@@ -1091,6 +1092,15 @@ section.talk .speaker {
 .schedule .error {
 	color: red;
 	font-weight: bold;
+}
+
+/* Indicator */
+
+.schedule .current-time-indicator {
+	position: absolute;
+	left: 2.8em;
+	right: 0;
+	border: 1px solid red;
 }
 
 /* Popup */
